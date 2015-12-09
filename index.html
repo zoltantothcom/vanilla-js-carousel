@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>Vanilla JavaScript Carousel</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/vanilla-js-carousel.css">
+    <script src="scripts/vanilla-js-carousel.min.js"></script>
+</head>
+<body>
+    <div class="b-carousel" id="carousel">
+        <div class="b-carousel__frame">
+            <ul class="b-carousel__items">
+                <li><img src="images/nature-1.jpg" alt=""></li>
+                <li><img src="images/nature-2.jpg" alt=""></li>
+                <li><img src="images/nature-3.jpg" alt=""></li>
+                <li><img src="images/nature-4.jpg" alt=""></li>
+                <li><img src="images/nature-5.jpg" alt=""></li>
+                <li><img src="images/nature-6.jpg" alt=""></li>
+                <li><img src="images/nature-7.jpg" alt=""></li>
+                <li><img src="images/nature-8.jpg" alt=""></li>
+                <li><img src="images/nature-9.jpg" alt=""></li>
+                <li><img src="images/nature-10.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var carousel = new Carousel({
+            el: 'carousel',  // id of the carousel container
+            autoplay: false, // starts the rotation automatically
+            interval: 1500,  // interval between slide changes
+            initial: 0,      // slide to start with
+            dots: true,      // show navigation dots
+            arrows: true,    // show navigation arrows
+            buttons: true    // show play/stop buttons
+        });
+
+        carousel.initSlide(5);
+        carousel.next();
+    </script>
+</body>
+</html>

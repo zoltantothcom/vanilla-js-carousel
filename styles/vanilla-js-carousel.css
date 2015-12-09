@@ -1,0 +1,93 @@
+.b-carousel {
+  background: rgba(0, 0, 0, 0.25);
+  height: 360px;
+  margin: 0 4em;
+  position: relative;
+  width: 960px;
+}
+
+.b-carousel__frame {
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.b-carousel__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 9999px;
+}
+.b-carousel__items li {
+  display: inline-block;
+  float: left;
+  transition: margin-left 0.25s linear;
+  width: 960px;
+}
+.b-carousel__items li img {
+  max-width: 100%;
+}
+
+.b-carousel__nav-arrow_prev,
+.b-carousel__nav-arrow_next {
+  background: transparent;
+  border: 0;
+  color: #555;
+  cursor: pointer;
+  font: 400 10em sans-serif;
+  outline: 0;
+  position: absolute;
+  top: 20%;
+}
+.b-carousel__nav-arrow_prev:hover,
+.b-carousel__nav-arrow_next:hover {
+  color: #999;
+}
+
+.b-carousel__nav-arrow_prev {
+  left: -75px;
+}
+
+.b-carousel__nav-arrow_next {
+  right: -75px;
+}
+
+.b-carousel__nav-dots {
+  display: inline-block;
+  height: 1.25em;
+  margin: 0;
+  position: absolute;
+  bottom: .5em;
+  right: 2em;
+}
+.b-carousel__nav-dots li {
+  background: #555;
+  border-radius: .75em;
+  cursor: pointer;
+  display: inline-block;
+  height: .75em;
+  margin: 0 .75em;
+  width: .75em;
+}
+.b-carousel__nav-dots li.active {
+  background: #fff;
+  box-shadow: 0 0 3px 3px #ddd;
+}
+.b-carousel__nav-dots li:hover {
+  background: #f5f5f5;
+}
+
+.b-carousel__button_stop,
+.b-carousel__button_play {
+  height: 2.25em;
+  position: absolute;
+  bottom: .33em;
+  left: 2em;
+  text-align: center;
+  width: 5em;
+}
+
+.b-carousel__button_stop {
+  left: 100px;
+}

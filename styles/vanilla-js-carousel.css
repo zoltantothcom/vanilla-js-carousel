@@ -1,9 +1,9 @@
 .b-carousel {
   background: rgba(0, 0, 0, 0.25);
-  height: 360px;
-  margin: 0 4em;
+  height: 240px;
+  margin: 0 auto 2em;
   position: relative;
-  width: 960px;
+  width: 600px;
 }
 
 .b-carousel__frame {
@@ -23,7 +23,7 @@
   display: inline-block;
   float: left;
   transition: margin-left 0.25s linear;
-  width: 960px;
+  width: 600px;
 }
 .b-carousel__items li img {
   max-width: 100%;
@@ -38,7 +38,7 @@
   font: 400 10em sans-serif;
   outline: 0;
   position: absolute;
-  top: 20%;
+  top: 0;
 }
 .b-carousel__nav-arrow_prev:hover,
 .b-carousel__nav-arrow_next:hover {
@@ -58,7 +58,7 @@
   height: 1.25em;
   margin: 0;
   position: absolute;
-  bottom: .5em;
+  bottom: .75em;
   right: 2em;
 }
 .b-carousel__nav-dots li {
@@ -90,4 +90,87 @@
 
 .b-carousel__button_stop {
   left: 100px;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip {
+  background: #fefac9;
+  border: 2px dashed #f0db4f;
+  cursor: default;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+img {
+  display: inline-block;
+}
+
+header {
+  width: 800px;
+  margin: 16px auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 48px 0 0;
+}
+
+h3 {
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 400;
+  margin: 32px 0 48px;
+}
+
+section {
+  border: 1px solid #f0db4f;
+  border-radius: 3px;
+  line-height: 1.75;
+  margin: 0 auto 32px;
+  width: 800px;
+}
+section h2 {
+  background: #fefac9;
+  border-bottom: 1px solid #f0db4f;
+  font-size: 14px;
+  margin: 0 0 30px;
+  padding: 10px;
+}
+section p, section ul, section ol {
+  margin: 0 45px 30px;
+}
+section ol {
+  margin-left: 25px;
+}
+section a {
+  color: #55acee;
+  text-decoration: none;
+}
+section a:hover {
+  text-decoration: underline;
+}
+section table {
+  border: 1px solid #eee;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+section table tr:nth-child(2n) {
+  background: #f5f5f5;
+}
+section table th, section table td {
+  border: 1px solid #eee;
+  padding: 10px;
+}
+section code {
+  font-size: 16px;
+}
+
+.smaller {
+  font-size: 16px;
+  font-style: italic;
 }

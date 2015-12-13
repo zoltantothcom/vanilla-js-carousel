@@ -1,30 +1,145 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<html>
 <head>
+    <meta charset="utf-8">
+
     <title>Vanilla JavaScript Carousel</title>
-    <link rel="stylesheet" type="text/css" href="styles/vanilla-js-carousel.css">
+
+    <link rel="stylesheet" href="styles/vanilla-js-carousel.css">
+    <link rel="stylesheet" href="styles/prism.css" />
     <!--[if IE 9]>
     <script src="//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script>
     <![endif]-->
-    <script src="scripts/vanilla-js-carousel.min.js"></script>
 </head>
 <body>
-    <div class="b-carousel" id="carousel">
-        <div class="b-carousel__frame">
-            <ul class="b-carousel__items">
-                <li><img src="images/nature-1.jpg" alt=""></li>
-                <li><img src="images/nature-2.jpg" alt=""></li>
-                <li><img src="images/nature-3.jpg" alt=""></li>
-                <li><img src="images/nature-4.jpg" alt=""></li>
-                <li><img src="images/nature-5.jpg" alt=""></li>
-                <li><img src="images/nature-6.jpg" alt=""></li>
-                <li><img src="images/nature-7.jpg" alt=""></li>
-                <li><img src="images/nature-8.jpg" alt=""></li>
-                <li><img src="images/nature-9.jpg" alt=""></li>
-                <li><img src="images/nature-10.jpg" alt=""></li>
-            </ul>
-        </div>
-    </div>
+    <header>
+        <img src="images/vanilla-js-logo.jpg" alt="Vanilla JS">
 
+        <h1>Vanilla Javascript Carousel</h1>
+
+        <h3>Vanilla Javascript carousel with all the basic features most of us will ever need.</h3>
+    </header>
+
+    <section>
+        <h2>About</h2>
+
+        <p>Libraries such as jQuery, MooTools, Dojo and others are truly awesome and powerful, but sometimes it's completely unnecessary to load 100-200Kb of libraries and plugins for a simple thing, like a carousel, tooltip or accordion.</p>
+
+        <p>That's when the Vanilla Javascript series come in handy to save on page weight and decrease download times with one of the following:</p>
+
+        <ul>
+            <li><a href="//zoltantothcom.github.io/vanilla-js-carousel/" target="_blank">Carousel</a></li>
+            <li><a href="//zoltantothcom.github.io/vanilla-js-tooltip/" target="_blank">Tooltip</a></li>
+            <li><a href="//zoltantothcom.github.io/vanilla-js-select/" target="_blank">Select</a></li>
+            <li>Accordion (coming soon)</li>
+            <li>Tabs (coming soon)</li>
+        </ul>
+
+        <p class="smaller">&mdash; Inspired by the blazing fast, lightweight, cross-platform <a href="http://vanilla-js.com/" target="_blank">Vanilla JS</a> framework.</p>
+    </section>
+
+    <section>
+        <h2>Demo</h2>
+
+        <div class="b-carousel" id="carousel">
+            <div class="b-carousel__frame">
+                <ul class="b-carousel__items">
+                    <li><img src="images/nature-1.jpg" alt=""></li>
+                    <li><img src="images/nature-2.jpg" alt=""></li>
+                    <li><img src="images/nature-3.jpg" alt=""></li>
+                    <li><img src="images/nature-4.jpg" alt=""></li>
+                    <li><img src="images/nature-5.jpg" alt=""></li>
+                    <li><img src="images/nature-6.jpg" alt=""></li>
+                    <li><img src="images/nature-7.jpg" alt=""></li>
+                    <li><img src="images/nature-8.jpg" alt=""></li>
+                    <li><img src="images/nature-9.jpg" alt=""></li>
+                    <li><img src="images/nature-10.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Usage</h2>
+
+        <ol>
+            <li>
+                Set up your HTML
+                <pre><code class="language-markup">&lt;div class="b-carousel" id="carousel">
+    &lt;div class="b-carousel__frame">
+        &lt;ul class="b-carousel__items">
+            &lt;li>&lt;img src="images/nature-1.jpg" alt="">&lt;/li>
+            &lt;li>&lt;img src="images/nature-2.jpg" alt="">&lt;/li>
+            &lt;li>&lt;img src="images/nature-3.jpg" alt="">&lt;/li>
+            &lt;li>&lt;img src="images/nature-4.jpg" alt="">&lt;/li>
+            &lt;li>&lt;img src="images/nature-5.jpg" alt="">&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+&lt;/div></code></pre>
+            </li>
+            <li>
+                Include the styles
+                <pre><code class="language-markup">&lt;link rel="stylesheet" href="vanilla-js-carousel.css" /></code></pre>
+
+                and the script
+                <pre><code class="language-markup">&lt;script src="vanilla-js-carousel.min.js">&lt;/script></code></pre>
+            </li>
+            <li>
+                Initialize the carousel
+                <pre><code class="language-javascript">var carousel = new Carousel({
+    el: "carousel",  // id of the carousel container
+    autoplay: false, // starts the rotation automatically
+    interval: 1500,  // interval between slide changes
+    initial: 0,      // slide to start with
+    dots: true,      // show navigation dots
+    arrows: true,    // show navigation arrows
+    buttons: true    // show play/stop buttons
+});
+
+carousel.initSlide(6);</code></pre>
+            </li>
+            <li>
+                List of available methods you can call on the carousel:
+
+                <table>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>.initSlide(n)</td>
+                        <td>Moves the carousel to slide by index</td>
+                    </tr>
+                    <tr>
+                        <td>.prev()</td>
+                        <td>Triggers previous slide</td>
+                    </tr>
+                    <tr>
+                        <td>.next()</td>
+                        <td>Triggers next slide</td>
+                    </tr>
+                    <tr>
+                        <td>.play()</td>
+                        <td>Starts the autoplay</td>
+                    </tr>
+                    <tr>
+                        <td>.stop()</td>
+                        <td>Stops the autoplay</td>
+                    </tr>
+                </table>
+            </li>
+        </ol>
+
+    </section>
+
+    <section>
+        <h2>Download</h2>
+
+        <p>Available at <a href="https://github.com/zoltantothcom/vanilla-js-carousel">GitHub</a></p>
+    </section>
+
+    <script src="scripts/prism.js"></script>
+    <script src="scripts/vanilla-js-carousel.min.js"></script>
     <script>
         var carousel = new Carousel({
             el: 'carousel',  // id of the carousel container
@@ -36,8 +151,7 @@
             buttons: true    // show play/stop buttons
         });
 
-        carousel.initSlide(5);
-        carousel.next();
+        carousel.initSlide(6);
     </script>
 </body>
 </html>

@@ -96,7 +96,7 @@ carousel.initSlide(2);
 carousel.next();
 ```
 
-#### Browser support and dependencies
+### Browser support and dependencies
 
 Browser | Support | Dependencies
 ------ | -------- | -----------
@@ -108,6 +108,6 @@ IE | yes* | [Polyfill](//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js)
 
 \* _IE9 and up_
 
-#### License
+### License
 
 Free. [Unlicense](http://unlicense.org).

@@ -3,11 +3,61 @@ Vanilla Javascript Carousel
 
 Vanilla Javascript carousel with all the basic features most of us will ever need.
 
-#### Demo
+*— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
+
+### Demo
 
 [http://zoltantothcom.github.io/vanilla-js-carousel](http://zoltantothcom.github.io/vanilla-js-carousel)
 
-#### Settings
+### Usage
+
+1. Include the CSS:
+
+  ```html
+  <link rel="stylesheet" href="path/to/vanilla-js-carousel.css" />
+  ```
+
+2. Include the script:
+
+  ```html
+  <script src="path/to/vanilla-js-carousel.min.js"></script>
+  ```
+
+3. Write some markup:
+
+  ```html
+  <div class="b-carousel" id="carousel">
+      <div class="b-carousel__frame">
+          <ul class="b-carousel__items">
+              <li><img src="images/nature-1.jpg" alt=""></li>
+              <li><img src="images/nature-2.jpg" alt=""></li>
+              <li><img src="images/nature-3.jpg" alt=""></li>
+              <li><img src="images/nature-4.jpg" alt=""></li>
+              <li><img src="images/nature-5.jpg" alt=""></li>
+          </ul>
+      </div>
+  </div>
+  ```
+
+4. Initialize the carousel:
+
+  ```javascript
+  var carousel = new Carousel({
+      elem: 'carousel',
+      autoplay: false,
+      interval: 1500,
+      initial: 0,
+      dots: false,
+      arrows: true,
+      buttons: false
+  });
+  ```
+
+5. Enjoy!
+
+### Settings
+
+List of options you can apply:
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
@@ -19,9 +69,19 @@ dots | boolean | true | Display navigation dots.
 arrows | boolean | true | Display navigation arrows (prev/next).
 buttons | boolean | true | Display navigation buttons (stop/play).
 
-#### Methods
+### Methods
 
-Methods are called on the carousel:
+Methods you can call on the carousel:
+
+Method | Argument | Description
+------ | -------- | -----------
+initSlide | index: int | Moves the carousel to slide by index
+prev | | Triggers previous slide
+next | | Triggers next slide
+play | | Starts the autoplay
+stop | | Stops the autoplay
+
+##### example:
 
 ```javascript
 // Initialize the carousel
@@ -34,30 +94,6 @@ carousel.initSlide(2);
 
 // Move to the next slide
 carousel.next();
-```
-
-Method | Argument | Description
------- | -------- | -----------
-initSlide | index: int | Moves the carousel to slide by index
-prev | | Triggers previous slide
-next | | Triggers next slide
-play | | Starts the autoplay
-stop | | Stops the autoplay
-
-#### Example
-
-Initialize:
-
-```javascript
-var carousel = new Carousel({
-    elem: 'carousel',
-    autoplay: false,
-    interval: 1500,
-    initial: 0,
-    dots: false,
-    arrows: true,
-    buttons: false
-});
 ```
 
 #### Browser support and dependencies

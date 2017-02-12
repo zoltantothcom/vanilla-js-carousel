@@ -12,60 +12,60 @@ Pure Javascript carousel with all the basic features and a tiny ~900 bytes footp
 ### Install
 ---
 1. Via NPM:
-```js
-npm install --save vanilla-js-carousel
-```
-
+    ```js
+    npm install --save vanilla-js-carousel
+    ```
+    
 2. Old school: 
-```html
-<script src="path/to/vanilla-js-carousel.min.js"></script>
-```
+    ```html
+    <script src="path/to/vanilla-js-carousel.min.js"></script>
+    ```
 
 ### Usage
 ---
 1. Include the CSS and feel free to edit it or write your own:
-```html
-<link rel="stylesheet" href="path/to/vanilla-js-carousel.css" />
-```
-> **`Please keep the CSS class names unchanged`**` - at this moment they're baked into the script.`
-> `This is grossly unacceptable and fixing that is a top priority which is underway.`
+    ```html
+    <link rel="stylesheet" href="path/to/vanilla-js-carousel.css" />
+    ```
+    > **`Please keep the CSS class names unchanged`**` - at this moment they're baked into the script.`
+    > `This is grossly unacceptable and fixing that is a top priority which is underway.`
 
 2. Write some markup:
-```html
-<div class="b-carousel" id="carousel">
-    <div class="b-carousel__frame">
-        <ul class="b-carousel__items">
-            <li><img src="image-1.jpg" alt=""></li>
-            <li><img src="image-2.jpg" alt=""></li>
-            <li><img src="image-3.jpg" alt=""></li>
-        </ul>
+    ```html
+    <div class="b-carousel" id="carousel">
+        <div class="b-carousel__frame">
+            <ul class="b-carousel__items">
+                <li><img src="image-1.jpg" alt=""></li>
+                <li><img src="image-2.jpg" alt=""></li>
+                <li><img src="image-3.jpg" alt=""></li>
+            </ul>
+        </div>
     </div>
-</div>
-```
+    ```
 
 3. If you installed via NPM:
-```js
-const Carousel = require("vanilla-js-carousel");
-```
+    ```js
+    const Carousel = require("vanilla-js-carousel");
+    ```
 
 4. Initialize the carousel:
-```js
-var carousel = new Carousel({
-    elem: 'carousel',  // id of the carousel container
-    autoplay: false,   // starts the rotation automatically
-    interval: 1500,    // interval between slide changes
-    initial: 0,        // slide to start with
-    dots: true,        // show navigation dots
-    arrows: true,      // show navigation arrows
-    buttons: true      // show play/stop buttons
-});
+    ```js
+    var carousel = new Carousel({
+        elem: 'carousel',  // id of the carousel container
+        autoplay: false,   // starts the rotation automatically
+        interval: 1500,    // interval between slide changes
+        initial: 0,        // slide to start with
+        dots: true,        // show navigation dots
+        arrows: true,      // show navigation arrows
+        buttons: true      // show play/stop buttons
+    });
 
-// Show slide number 3 (Numeration of slides starts at 0)
-carousel.initSlide(2);
+    // Show slide number 3 (Numeration of slides starts at 0)
+    carousel.initSlide(2);
 
-// Move to the next slide
-carousel.next();
-```
+    // Move to the next slide
+    carousel.next();
+    ```
 
 ### Options
 ---

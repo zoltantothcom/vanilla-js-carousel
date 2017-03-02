@@ -1,6 +1,8 @@
 Vanilla Javascript Carousel
 -------
 
+[![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-carousel.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-carousel)
+
 Pure Javascript carousel with all the basic features just under 1024 bytes (minified and gzipped).
 
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*

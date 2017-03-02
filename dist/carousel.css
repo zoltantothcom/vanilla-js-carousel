@@ -1,0 +1,85 @@
+.js-carousel {
+  background: rgba(0, 0, 0, 0.33);
+  height: 255px;
+  margin: 0 auto 2em;
+  overflow: hidden;
+  position: relative;
+  width: 600px;
+}
+.js-carousel > ul {
+  height: 200px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 9999px;
+}
+.js-carousel > ul li {
+  display: inline-block;
+  float: left;
+  transition: margin-left 0.25s linear;
+  width: 600px;
+}
+.js-carousel > ul li img {
+  max-width: 100%;
+}
+.js-carousel .arrow_prev,
+.js-carousel .arrow_next {
+  background: transparent;
+  border: 0;
+  color: #e0e0e0;
+  cursor: pointer;
+  font: 400 10em sans-serif;
+  height: 200px;
+  outline: 0;
+  position: absolute;
+  top: 0;
+  text-shadow: 0 0 10px #444;
+  width: 90px;
+}
+.js-carousel .arrow_prev:hover,
+.js-carousel .arrow_next:hover {
+  color: #999;
+}
+.js-carousel .arrow_prev {
+  left: 0;
+}
+.js-carousel .arrow_next {
+  right: 0;
+}
+.js-carousel .dots {
+  display: inline-block;
+  height: 1.25em;
+  margin: 0;
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  width: auto;
+}
+.js-carousel .dots li {
+  background: #555;
+  border-radius: .75em;
+  cursor: pointer;
+  display: inline-block;
+  height: .75em;
+  margin: 0 .75em;
+  width: .75em;
+}
+.js-carousel .dots li.active {
+  background: #fff;
+  box-shadow: 0 0 3px 3px #ddd;
+}
+.js-carousel .dots li:hover {
+  background: #f5f5f5;
+}
+.js-carousel .btn_stop,
+.js-carousel .btn_play {
+  height: 2.25em;
+  position: absolute;
+  bottom: 1em;
+  left: 2em;
+  text-align: center;
+  width: 5em;
+}
+.js-carousel .btn_stop {
+  left: 100px;
+}

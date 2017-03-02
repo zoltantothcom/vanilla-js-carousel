@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - "node"
+
+branches:
+  only:
+    - master
+
+before_script:
+  - npm install -g karma-cli
+  - npm install -g gulp-cli
+  - npm install
+
+script:
+  - npm start
+  - npm test

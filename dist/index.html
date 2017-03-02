@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vanilla Javascript Carousel</title>
+    <link rel="stylesheet" href="carousel.css">
+  </head>
+  <body>
+    <section>
+      <div class="js-carousel" id="carousel">
+        <ul>
+          <li><img src="../img/nature-1.jpg" alt=""></li>
+          <li><img src="../img/nature-2.jpg" alt=""></li>
+          <li><img src="../img/nature-3.jpg" alt=""></li>
+          <li><img src="../img/nature-4.jpg" alt=""></li>
+        </ul>
+      </div>
+    </section>
+    <script src="carousel.min.js"></script>
+    <script>
+      var carousel = new Carousel({
+      	elem: 'carousel',
+      	dots: true,
+      	arrows: true,
+      	buttons: true,
+      	autoplay: true
+      });
+    </script>
+  </body>
+</html>

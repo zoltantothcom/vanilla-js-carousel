@@ -15,3 +15,7 @@ before_script:
 script:
   - npm start
   - npm test
+
+addons:
+    code_climate:
+        repo_token: ecf33ca3ef2bbd6a1a642750e803cc2fb75dd176b54d3032a9336a5c9cebe372

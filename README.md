@@ -1,9 +1,9 @@
 Vanilla Javascript Carousel
 -------
 
-[![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-carousel.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-carousel)
+[![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-carousel.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-carousel) [![Code Climate](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel/badges/gpa.svg)](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel)
 
-Pure Javascript carousel with all the basic features just under 1024 bytes (minified and gzipped).
+Pure Javascript carousel with all the basic features in 1024 bytes (minified and gzipped).
 
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
@@ -67,7 +67,7 @@ Pure Javascript carousel with all the basic features just under 1024 bytes (mini
     });
 
     // Show slide number 3 (Numeration of slides starts at 0)
-    carousel.initSlide(2);
+    carousel.show(2);
 
     // Move to the next slide
     carousel.next();
@@ -103,7 +103,6 @@ Option | Type | Default | Description
 ------ | ---- | ------- | -----------
 btnPlayText | string | Play | Text for <*play*> button
 btnStopText | string | Stop | Text for <*stop*> button
-|
 arrPrevText | string | `&lsaquo;` | Text for <*prev*> arrow
 arrNextText | string | `&rsaquo;` | Text for <*next*> arrow
 

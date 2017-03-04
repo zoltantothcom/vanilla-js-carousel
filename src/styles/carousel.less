@@ -1,5 +1,18 @@
+// colors
+@bg:          #272822;
+@white:       #ffffff;
+@grey:        #aaaaaa;
+@grey-medium: #e0e0e0;
+@grey-light:  #f5f5f5;
+@grey-dark:   #444444;
+
+// mixins
+.transition(@property: all, @duration: .2s) {
+    transition: @property @duration linear;
+}
+
 .js-carousel {
-    background: rgba(0, 0, 0, .33);
+    background: @bg;
     height: 255px;
     margin: 0 auto 2em;
         overflow: hidden;
@@ -19,8 +32,8 @@
         li {
             display: inline-block;
             float: left;
-            transition: margin-left 0.25s linear;
             width: 600px;
+            .transition(margin-left, .3s);
 
             img {
                 max-width: 100%;
@@ -34,18 +47,19 @@
     .arrow_next {
         background: transparent;
         border: 0;
-        color: #e0e0e0;
+        color: @grey-medium;
         cursor: pointer;
         font: 400 10em sans-serif;
         height: 200px;
         outline: 0;
         position: absolute;
             top: 0;
-        text-shadow: 0 0 10px #444;
+        text-shadow: 0 0 10px @grey-dark;
         width: 90px;
+        .transition;
 
         &:hover {
-            color: #999;
+            color: @grey;
         }
     }
 
@@ -64,21 +78,22 @@
         width: auto;
 
         li {
-            background: #555;
+            background: @grey;
             border-radius: .75em;
             cursor: pointer;
             display: inline-block;
             height: .75em;
             margin: 0 .75em;
             width: .75em;
+            .transition;
 
             &.active {
-                background: #fff;
+                background: @white;
                 box-shadow: 0 0 3px 3px #ddd;
             }
 
             &:hover {
-                background: #f5f5f5;
+                background: @grey-light;
             }
         }
     }
@@ -87,12 +102,20 @@
     // buttons - PLAY and STOP
     .btn_stop,
     .btn_play {
+        background: @grey;
+        border: 0;
+        cursor: pointer;
         height: 2.25em;
         position: absolute;
             bottom: 1em;
             left: 2em;
         text-align: center;
         width: 5em;
+        .transition;
+
+        &:hover {
+            background: @grey-light;
+        }
     }
 
     .btn_stop {

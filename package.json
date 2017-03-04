@@ -8,6 +8,7 @@
     "test": "karma start karma.conf.js"
   },
   "devDependencies": {
+    "coveralls": "^2.11.16",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.0.3",
     "gulp-cli": "^1.2.2",

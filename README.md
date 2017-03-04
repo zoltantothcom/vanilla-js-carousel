@@ -1,45 +1,50 @@
 Vanilla Javascript Carousel
 -------
 
-Pure Javascript carousel with all the basic features and a tiny ~900 bytes footprint (minified and gzipped).
+[![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-carousel.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-carousel) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-carousel/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-carousel?branch=master) [![Code Climate](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel/badges/gpa.svg)](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel)
+
+Pure Javascript carousel with all the basic features in 1024 bytes (minified and gzipped).
 
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
-### Demo
+
+## Demo
 ---
 [Carousel](http://zoltantothcom.github.io/vanilla-js-carousel "Carousel Demo")
 
-### Install
+
+## Installation
 ---
 1. Via NPM:
     ```js
     npm install --save vanilla-js-carousel
     ```
+    or in case you love shortcuts:
+    ```js
+    npm i --S vanilla-js-carousel
+    ```
     
 2. Old school: 
     ```html
-    <script src="path/to/vanilla-js-carousel.min.js"></script>
+    <script src="dist/vanilla-js-carousel.min.js"></script>
     ```
 
-### Usage
+
+## Usage
 ---
 1. Include the CSS and feel free to edit it or write your own:
     ```html
-    <link rel="stylesheet" href="path/to/vanilla-js-carousel.css" />
+    <link rel="stylesheet" href="dist/vanilla-js-carousel.css" />
     ```
-    > **`Please keep the CSS class names unchanged`**` - at this moment they're baked into the script.`
-    > `This is grossly unacceptable and fixing that is a top priority which is underway.`
 
 2. Write some markup:
     ```html
-    <div class="b-carousel" id="carousel">
-        <div class="b-carousel__frame">
-            <ul class="b-carousel__items">
-                <li><img src="image-1.jpg" alt=""></li>
-                <li><img src="image-2.jpg" alt=""></li>
-                <li><img src="image-3.jpg" alt=""></li>
-            </ul>
-        </div>
+    <div class="js-carousel" id="carousel">
+        <ul>
+            <li><img src="image-1.jpg" alt=""></li>
+            <li><img src="image-2.jpg" alt=""></li>
+            <li><img src="image-3.jpg" alt=""></li>
+        </ul>
     </div>
     ```
 
@@ -51,45 +56,77 @@ Pure Javascript carousel with all the basic features and a tiny ~900 bytes footp
 4. Initialize the carousel:
     ```js
     var carousel = new Carousel({
-        elem: 'carousel',  // id of the carousel container
-        autoplay: false,   // starts the rotation automatically
-        interval: 1500,    // interval between slide changes
-        initial: 0,        // slide to start with
-        dots: true,        // show navigation dots
-        arrows: true,      // show navigation arrows
-        buttons: true      // show play/stop buttons
+        elem: 'carousel',    // id of the carousel container
+        autoplay: false,     // starts the rotation automatically
+        interval: 1500,      // interval between slide changes
+        initial: 0,          // slide to start with
+        dots: true,          // show navigation dots
+        arrows: true,        // show navigation arrows
+        buttons: false,      // hide play/stop buttons,
+        btnStopText: 'Pause' // STOP button text
     });
 
     // Show slide number 3 (Numeration of slides starts at 0)
-    carousel.initSlide(2);
+    carousel.show(2);
 
     // Move to the next slide
     carousel.next();
     ```
 
-### Options
+
+## Options
 ---
+
+#### Settings
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
-elem | string | carousel | The _id_ of the carousel container in the HTML markup.
-interval | int  | 3000 | Auto play interval in milliseconds.
-initial | int | 0 | Index of the slide to start on.
-autoplay | boolean | false | Enables auto play of slides.
-dots | boolean | true | Display navigation dots.
-arrows | boolean | true | Display navigation arrows (prev/next).
-buttons | boolean | true | Display navigation buttons (stop/play).
+elem | string | carousel | The _id_ of the carousel container in the HTML markup
+interval | int  | 3000 | Auto play interval in milliseconds
+initial | int | 0 | Index of the slide to start on
+autoplay | boolean | false | Enables auto play of slides
+dots | boolean | true | Display navigation dots
+arrows | boolean | true | Display navigation arrows (<*prev*>/<*next*>)
+buttons | boolean | true | Display navigation buttons (<*stop*>/<*play*>)
 
-### Methods
+#### CSS classes
+Option | Type | Default | Description
+------ | ---- | ------- | -----------
+crslClass | string | .js-carousel | CSS class of the carousel container
+crslArrowPrevClass | string | .arrow_prev | CSS class of the <*prev*> arrow
+crslArrowNextClass | string | .arrow_next | CSS class of the <*next*> arrow
+crslDotsClass | string | .dots | CSS class of the nav dots container
+crslButtonPlayClass | string | .btn_play | CSS class of the <*play*> button
+crslButtonStopClass | string | .btn_stop | CSS class of the <*stop*> button
+
+#### Button titles
+Option | Type | Default | Description
+------ | ---- | ------- | -----------
+btnPlayText | string | Play | Text for <*play*> button
+btnStopText | string | Stop | Text for <*stop*> button
+arrPrevText | string | `&lsaquo;` | Text for <*prev*> arrow
+arrNextText | string | `&rsaquo;` | Text for <*next*> arrow
+
+
+## Methods
 ---
 Method | Argument | Description
 ------ | -------- | -----------
-initSlide | index: int | Moves the carousel to slide by index
-prev | | Triggers previous slide
-next | | Triggers next slide
-play | | Starts the autoplay
-stop | | Stops the autoplay
+.show(index) | index: int | Moves the carousel to slide by index
+.live() | | Returns the current slide's index
+.prev() | | Triggers previous slide
+.next() | | Triggers next slide
+.play() | | Starts the autoplay
+.stop() | | Stops the autoplay
 
-### Browser support and dependencies
+
+## Run the tests
+---
+```
+npm test
+```
+
+
+## Browser support and dependencies
 ---
 Browser | Support | Dependencies
 ------ | -------- | -----------
@@ -101,6 +138,7 @@ IE | yes* | [Polyfill](//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js)
 
 \* _IE9 and up_
 
-### License
+
+## License
 ---
 Free. [Unlicense](http://unlicense.org).

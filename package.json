@@ -1,19 +1,26 @@
 {
   "name": "vanilla-js-carousel",
-  "version": "1.0.0",
-  "description": "Pure Javascript carousel with all the basic features and a tiny ~900 bytes footprint (minified and gzipped).",
+  "version": "2.1.0",
+  "description": "Pure Javascript carousel with all the basic features just under 1024 bytes (minified and gzipped).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zoltantothcom/vanilla-js-carousel.git#npm"
+    "url": "https://github.com/zoltantothcom/vanilla-js-carousel.git"
   },
   "author": "Zoltan Toth",
   "license": "Unlicense",
+  "keywords": [
+    "carousel",
+    "javascript",
+    "slider",
+    "javascript carousel",
+    "vanilla javascript slider"
+  ],
   "bugs": {
     "url": "https://github.com/zoltantothcom/vanilla-js-carousel/issues"
   },
   "homepage": "https://zoltantothcom.github.io/vanilla-js-carousel"
-}
+} 

@@ -4,6 +4,10 @@ node_js:
   - "5"
 
 branches:
+  except:
+  - npm
+
+branches:
   only:
     - master
 

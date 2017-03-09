@@ -53,7 +53,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('lint', function() {
-	return gulp.src('./src/*.js')
+	return gulp.src('./src/javascript/*.js')
 		.pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter(stylish));
 });

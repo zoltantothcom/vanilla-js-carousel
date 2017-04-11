@@ -1,6 +1,13 @@
 # Change Log
 ---
 
+## [2.2.0] - 2017-04-11
+
+### Added
+1. Ability to specify the carousel behavior:
+    - circular or linear
+
+
 ## [2.1.0] - 2017-03-03
 
 ### Added

@@ -11,7 +11,7 @@
 * @class
 * @param {object} options - User defined settings for the carousel.
 * @param {string} options.elem - The HTML id of the carousel container.
-* @param {(boolean)} [options.circular=true] - Enables circular mode for the slider.
+* @param {(boolean)} [options.circular=false] - Enables circular mode for the slider.
 * @param {(boolean)} [options.autoplay=false] - Enables auto play of slides.
 * @param {number} [options.interval=3000] - The interval between slide change.
 * @param {number} [options.show=0] - Index of the slide to start on. Numeration begins at 0.

@@ -84,6 +84,7 @@ elem | string | carousel | The _id_ of the carousel container in the HTML markup
 interval | int  | 3000 | Auto play interval in milliseconds
 initial | int | 0 | Index of the slide to start on
 autoplay | boolean | false | Enables auto play of slides
+circular | boolean | false | Enables circular mode
 dots | boolean | true | Display navigation dots
 arrows | boolean | true | Display navigation arrows (<*prev*>/<*next*>)
 buttons | boolean | true | Display navigation buttons (<*stop*>/<*play*>)

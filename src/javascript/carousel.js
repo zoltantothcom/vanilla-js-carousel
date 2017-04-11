@@ -1,16 +1,17 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 2.1.0
+* @version 2.2.0
 */
 
 /**
 * @description
-* Pure Javascript carousel with all the basic features just under 1024 bytes (minified and gzipped).
+* 1Kb (gzipped) pure JavaScript carousel with all the basic features.
 *
 * @class
 * @param {object} options - User defined settings for the carousel.
 * @param {string} options.elem - The HTML id of the carousel container.
+* @param {(boolean)} [options.circular=true] - Enables circular mode for the slider.
 * @param {(boolean)} [options.autoplay=false] - Enables auto play of slides.
 * @param {number} [options.interval=3000] - The interval between slide change.
 * @param {number} [options.show=0] - Index of the slide to start on. Numeration begins at 0.
@@ -33,11 +34,12 @@
 function Carousel(options) {
 
     var el = document.getElementById(options.elem || 'carousel'),
-        autoplay       = options.autoplay || false,
+        autoplay       = options.autoplay,
+        circular       = options.circular,
         interval       = options.interval || 3000,
-        controlDots    = options.dots     && true,
-        controlArrows  = options.arrows   && true,
-        controlButtons = options.buttons  && true,
+        controlDots    = options.dots,
+        controlArrows  = options.arrows,
+        controlButtons = options.buttons,
 
         crslClass           = options.crslClass           || 'js-carousel',
         crslArrowPrevClass  = options.crslArrowPrevClass  || 'arrow_prev',
@@ -68,23 +70,28 @@ function Carousel(options) {
     /**
     * Render the carousel and all the navigation elements (arrows, dots, 
     * play/stop buttons) if needed. Start with a particular slide, if set.
-    * Move the last item to the very beginning and off the display area.
+    * If circular - move the last item to the very beginning and off the display area.
     */
     function render() {
         if (controlDots) {
             showDots();
         }
+
         if (controlArrows) {
             showArrows();
         }
+
         if (controlButtons) {
             showButtons();
         }
+
         if (autoplay) {
             play();
         }
 
-        moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
+        if (circular) {
+            moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
+        }
 
         if (initial) {
             show(initial);
@@ -252,8 +259,16 @@ function Carousel(options) {
     * @public
     */
     function prev() {
-        animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[0]);
-        moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
+        if (circular) {
+            animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[0]);
+            moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
+        } else {
+            stop();
+            if (current === 0) {
+                return;
+            }
+            animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
+        }
 
         current--;
 
@@ -270,8 +285,16 @@ function Carousel(options) {
     * @public
     */
     function next() {
-        animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[1]);
-        moveItem(0, '', 'beforeEnd');
+        if (circular) {
+            animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[1]);
+            moveItem(0, '', 'beforeEnd');
+        } else {
+            if (current === count - 1) {
+                stop();
+                return;
+            }
+            animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[current]);
+        }
 
         current++;
 

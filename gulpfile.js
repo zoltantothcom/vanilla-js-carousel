@@ -2,7 +2,6 @@ var pkg      = require('./package.json'),
 	pug      = require('gulp-pug'),
 	gulp     = require('gulp'),
 	less     = require('gulp-less'),
-	strip    = require('gulp-strip-code'),
 	clean    = require('gulp-clean-css'),
 	uglify   = require('gulp-uglify'),
 	rename   = require('gulp-rename'),
@@ -18,10 +17,6 @@ var banner = ['/**',
 
 gulp.task('script', function() {
 	gulp.src(['./src/javascript/carousel.js'])
-		.pipe(strip({
-			start_comment: 'start-test-block',
-			end_comment: 'end-test-block'
-		}))
 		.pipe(uglify())
 		.pipe(header(banner, { 
 			pkg: pkg 

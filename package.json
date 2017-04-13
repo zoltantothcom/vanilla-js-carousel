@@ -1,7 +1,7 @@
 {
   "name": "vanilla-js-carousel",
-  "version": "2.1.0",
-  "description": "Pure Javascript carousel with all the basic features in 1024 bytes (minified and gzipped).",
+  "version": "2.2.0",
+  "description": "Tiny (1Kb gzipped) JavaScript carousel with all the basic features.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

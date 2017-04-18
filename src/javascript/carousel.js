@@ -259,15 +259,17 @@ function Carousel(options) {
     * @public
     */
     function showPrev() {
-        if (circular) {
-            animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[0]);
-            moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
-        } else {
-            stop();
-            if (current === 0) {
-                return;
-            }
-            animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
+        switch (circular) {
+            case true:
+                animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[0]);
+                moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
+                break;
+            default:
+                stop();
+                if (current === 0) {
+                    return;
+                }
+                animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
         }
 
         current--;
@@ -285,15 +287,17 @@ function Carousel(options) {
     * @public
     */
     function showNext() {
-        if (circular) {
-            animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[1]);
-            moveItem(0, '', 'beforeEnd');
-        } else {
-            if (current === count - 1) {
-                stop();
-                return;
-            }
-            animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[current]);
+        switch (circular) {
+            case true:
+                animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[1]);
+                moveItem(0, '', 'beforeEnd');
+                break;
+            default:
+                if (current === count - 1) {
+                    stop();
+                    return;
+                }
+                animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[current]);
         }
 
         current++;

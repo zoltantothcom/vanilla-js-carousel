@@ -183,8 +183,8 @@ function Carousel(options) {
         buttonNext.innerHTML = arrNextText;
         buttonNext.classList.add(crslArrowNextClass);
 
-        buttonPrev.addEventListener('click', prev);
-        buttonNext.addEventListener('click', next);
+        buttonPrev.addEventListener('click', showPrev);
+        buttonNext.addEventListener('click', showNext);
 
         el.appendChild(buttonPrev);
         el.appendChild(buttonNext);
@@ -242,11 +242,11 @@ function Carousel(options) {
 
         if (delta < 0) {
             for (var i = 0; i < -delta; i++) {
-                next();
+                showNext();
             }
         } else {
             for (var j = 0; j < delta; j++) {
-                prev();
+                showPrev();
             }
         }
     }
@@ -258,7 +258,7 @@ function Carousel(options) {
     * 
     * @public
     */
-    function prev() {
+    function showPrev() {
         if (circular) {
             animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[0]);
             moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
@@ -284,7 +284,7 @@ function Carousel(options) {
     * 
     * @public
     */
-    function next() {
+    function showNext() {
         if (circular) {
             animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[1]);
             moveItem(0, '', 'beforeEnd');
@@ -313,7 +313,7 @@ function Carousel(options) {
         if (cycle) {
             return;
         }
-        cycle = setInterval(next.bind(this), interval);
+        cycle = setInterval(showNext.bind(this), interval);
     }
 
     /**
@@ -338,8 +338,8 @@ function Carousel(options) {
     return {
         'live': live,
         'show': show,
-        'prev': prev,
-        'next': next,
+        'prev': showPrev,
+        'next': showNext,
         'play': play,
         'stop': stop
     };

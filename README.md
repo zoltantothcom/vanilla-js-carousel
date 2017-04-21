@@ -10,7 +10,7 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the basic features.
 
 ## Demo
 ---
-[Carousel](http://zoltantothcom.github.io/vanilla-js-carousel "Carousel Demo")
+[**Carousel**](http://zoltantothcom.github.io/vanilla-js-carousel "Carousel Demo")
 
 
 ## Installation
@@ -39,7 +39,7 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the basic features.
 
 2. Write some markup:
     ```html
-    <div class="js-carousel" id="carousel">
+    <div class="js-Carousel" id="carousel">
         <ul>
             <li><img src="image-1.jpg" alt=""></li>
             <li><img src="image-2.jpg" alt=""></li>
@@ -58,6 +58,7 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the basic features.
     var carousel = new Carousel({
         elem: 'carousel',    // id of the carousel container
         autoplay: false,     // starts the rotation automatically
+        infinite: true,      // enables the infinite mode
         interval: 1500,      // interval between slide changes
         initial: 0,          // slide to start with
         dots: true,          // show navigation dots
@@ -84,20 +85,10 @@ elem | string | carousel | The _id_ of the carousel container in the HTML markup
 interval | int  | 3000 | Auto play interval in milliseconds
 initial | int | 0 | Index of the slide to start on
 autoplay | boolean | false | Enables auto play of slides
-circular | boolean | false | Enables circular mode
+infinite | boolean | false | Enables infinite mode
 dots | boolean | true | Display navigation dots
 arrows | boolean | true | Display navigation arrows (<*prev*>/<*next*>)
 buttons | boolean | true | Display navigation buttons (<*stop*>/<*play*>)
-
-#### CSS classes
-Option | Type | Default | Description
------- | ---- | ------- | -----------
-crslClass | string | .js-carousel | CSS class of the carousel container
-crslArrowPrevClass | string | .arrow_prev | CSS class of the <*prev*> arrow
-crslArrowNextClass | string | .arrow_next | CSS class of the <*next*> arrow
-crslDotsClass | string | .dots | CSS class of the nav dots container
-crslButtonPlayClass | string | .btn_play | CSS class of the <*play*> button
-crslButtonStopClass | string | .btn_stop | CSS class of the <*stop*> button
 
 #### Button titles
 Option | Type | Default | Description

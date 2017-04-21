@@ -7,7 +7,7 @@
   </head>
   <body>
     <section>
-      <div class="js-carousel" id="carousel">
+      <div class="js-Carousel" id="carousel">
         <ul>
           <li><img src="../img/nature-1.jpg" alt=""></li>
           <li><img src="../img/nature-2.jpg" alt=""></li>
@@ -16,14 +16,16 @@
         </ul>
       </div>
     </section>
-    <script src="carousel.min.js"></script>
+    <script src="../src/javascript/carousel.js"></script>
     <script>
       var carousel = new Carousel({
       	elem: 'carousel',
       	dots: true,
       	arrows: true,
       	buttons: true,
-      	autoplay: true
+      	autoplay: true,
+        initial: 1,
+        infinite: true
       });
     </script>
   </body>

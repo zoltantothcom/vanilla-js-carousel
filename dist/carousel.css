@@ -1,4 +1,4 @@
-.js-carousel {
+.js-Carousel {
   background: #272822;
   height: 255px;
   margin: 0 auto 2em;
@@ -6,24 +6,24 @@
   position: relative;
   width: 600px;
 }
-.js-carousel > ul {
+.js-Carousel > ul {
   height: 200px;
   list-style: none;
   margin: 0;
   padding: 0;
   width: 9999px;
 }
-.js-carousel > ul li {
+.js-Carousel > ul li {
   display: inline-block;
   float: left;
   width: 600px;
-  transition: margin-left 0.3s linear;
+  transition: margin-left 0.3s ease;
 }
-.js-carousel > ul li img {
+.js-Carousel > ul li img {
   max-width: 100%;
 }
-.js-carousel .arrow_prev,
-.js-carousel .arrow_next {
+.js-Carousel .js-Carousel-arrowPrev,
+.js-Carousel .js-Carousel-arrowNext {
   background: transparent;
   border: 0;
   color: #e0e0e0;
@@ -35,19 +35,19 @@
   top: 0;
   text-shadow: 0 0 10px #444444;
   width: 90px;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease;
 }
-.js-carousel .arrow_prev:hover,
-.js-carousel .arrow_next:hover {
+.js-Carousel .js-Carousel-arrowPrev:hover,
+.js-Carousel .js-Carousel-arrowNext:hover {
   color: #aaaaaa;
 }
-.js-carousel .arrow_prev {
+.js-Carousel .js-Carousel-arrowPrev {
   left: 0;
 }
-.js-carousel .arrow_next {
+.js-Carousel .js-Carousel-arrowNext {
   right: 0;
 }
-.js-carousel .dots {
+.js-Carousel .js-Carousel-dots {
   display: inline-block;
   height: 1.25em;
   margin: 0;
@@ -56,7 +56,7 @@
   right: 1em;
   width: auto;
 }
-.js-carousel .dots li {
+.js-Carousel .js-Carousel-dots li {
   background: #aaaaaa;
   border-radius: .75em;
   cursor: pointer;
@@ -64,17 +64,17 @@
   height: .75em;
   margin: 0 .75em;
   width: .75em;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease;
 }
-.js-carousel .dots li.active {
+.js-Carousel .js-Carousel-dots li.is-active {
   background: #ffffff;
   box-shadow: 0 0 3px 3px #ddd;
 }
-.js-carousel .dots li:hover {
+.js-Carousel .js-Carousel-dots li:hover {
   background: #f5f5f5;
 }
-.js-carousel .btn_stop,
-.js-carousel .btn_play {
+.js-Carousel .js-Carousel-btnStop,
+.js-Carousel .js-Carousel-btnPlay {
   background: #aaaaaa;
   border: 0;
   cursor: pointer;
@@ -84,12 +84,12 @@
   left: 2em;
   text-align: center;
   width: 5em;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease;
 }
-.js-carousel .btn_stop:hover,
-.js-carousel .btn_play:hover {
+.js-Carousel .js-Carousel-btnStop:hover,
+.js-Carousel .js-Carousel-btnPlay:hover {
   background: #f5f5f5;
 }
-.js-carousel .btn_stop {
+.js-Carousel .js-Carousel-btnStop {
   left: 100px;
 }

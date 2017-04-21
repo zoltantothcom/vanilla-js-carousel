@@ -1,7 +1,7 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 2.2.0
+* @version 3.0.0
 */
 
 /**
@@ -10,21 +10,15 @@
 *
 * @class
 * @param {object} options - User defined settings for the carousel.
-* @param {string} options.elem - The HTML id of the carousel container.
-* @param {(boolean)} [options.circular=false] - Enables circular mode for the slider.
-* @param {(boolean)} [options.autoplay=false] - Enables auto play of slides.
+* @param {string} options.elem [options.elem=carousel] - The HTML id of the carousel container.
+* @param {(boolean)} [options.infinite=false] - Enables infinite mode for the carousel.
+* @param {(boolean)} [options.autoplay=false] - Enables auto play for slides.
 * @param {number} [options.interval=3000] - The interval between slide change.
 * @param {number} [options.show=0] - Index of the slide to start on. Numeration begins at 0.
+*
 * @param {(boolean)} [options.dots=true] - Display navigation dots.
 * @param {(boolean)} [options.arrows=true] - Display navigation arrows (PREV/NEXT).
 * @param {(boolean)} [options.buttons=true] - Display navigation buttons (STOP/PLAY).
-*
-* @param {(string)} [options.crslClass=.js-carousel] -  CSS class of the carousel container.
-* @param {(string)} [options.crslArrowPrevClass=.arrow_prev] -  CSS class of the _PREV_ arrow.
-* @param {(string)} [options.crslArrowNextClass=.arrow_next] -  CSS class of the _NEXT_ arrow.
-* @param {(string)} [options.crslDotsClass=.dots] -  CSS class of the nav dots container.
-* @param {(string)} [options.crslButtonStopClass=.btn_play] -  CSS class of the _PLAY_ button.
-* @param {(string)} [options.crslButtonPlayClass=.btn_stop] -  CSS class of the _STOP_ button.
 *
 * @param {(string)} [options.btnPlayText=Play] - Text for _PLAY_ button.
 * @param {(string)} [options.btnStopText=Stop] - Text for _STOP_ button.
@@ -32,21 +26,9 @@
 * @param {(string)} [options.arrNextText=&raquo;] - Text for _NEXT_ arrow.
 */
 function Carousel(options) {
-
-    var el = document.getElementById(options.elem || 'carousel'),
-        autoplay       = options.autoplay,
-        circular       = options.circular,
-        interval       = options.interval || 3000,
-        controlDots    = options.dots,
-        controlArrows  = options.arrows,
-        controlButtons = options.buttons,
-
-        crslClass           = options.crslClass           || 'js-carousel',
-        crslArrowPrevClass  = options.crslArrowPrevClass  || 'arrow_prev',
-        crslArrowNextClass  = options.crslArrowNextClass  || 'arrow_next',
-        crslDotsClass       = options.crslDotsClass       || 'dots',
-        crslButtonStopClass = options.crslButtonStopClass || 'btn_stop',
-        crslButtonPlayClass = options.crslButtonPlayClass || 'btn_play',
+    var element     = document.getElementById(options.elem || 'carousel'),
+        infinite    = options.infinite,
+        interval    = options.interval || 3000,
 
         btnPlayText = options.btnPlayText || 'Play',
         btnStopText = options.btnStopText || 'Stop',
@@ -54,8 +36,14 @@ function Carousel(options) {
         arrNextText = options.arrNextText || '&rsaquo;',
         arrPrevText = options.arrPrevText || '&lsaquo;',
 
-        count   = el.querySelectorAll('li').length,
-        initial = 0 || (options.initial >= count) ? count : options.initial,
+        crslClass           = 'js-Carousel',
+        crslArrowPrevClass  = 'js-Carousel-arrowPrev',
+        crslArrowNextClass  = 'js-Carousel-arrowNext',
+        crslDotsClass       = 'js-Carousel-dots',
+        crslButtonStopClass = 'js-Carousel-btnStop',
+        crslButtonPlayClass = 'js-Carousel-btnPlay',
+
+        count   = element.querySelectorAll('li').length,
         current = 0,
         cycle   = null;
 
@@ -70,31 +58,35 @@ function Carousel(options) {
     /**
     * Render the carousel and all the navigation elements (arrows, dots, 
     * play/stop buttons) if needed. Start with a particular slide, if set.
-    * If circular - move the last item to the very beginning and off the display area.
+    * If infinite - move the last item to the very beginning and off the display area.
     */
     function render() {
-        if (controlDots) {
-            showDots();
-        }
+        var actions = {
+            autoplay: function() {
+                return play();
+            },
+            dots: function() {
+                return showDots();
+            },
+            arrows: function() {
+                return showArrows();
+            },
+            buttons: function() {
+                return showButtons();
+            },
+            initial: function() {
+                var initial = 0 || (options.initial >= count) ? count : options.initial;
+                return show(initial);
+            },
+            infinite: function() {
+                return moveItem(count - 1, -element.offsetWidth + 'px', 'afterBegin');
+            }
+        };
 
-        if (controlArrows) {
-            showArrows();
-        }
-
-        if (controlButtons) {
-            showButtons();
-        }
-
-        if (autoplay) {
-            play();
-        }
-
-        if (circular) {
-            moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
-        }
-
-        if (initial) {
-            show(initial);
+        for (var key in options) {
+            if (options[key] && actions.hasOwnProperty(key)) {
+                actions[key]();
+            }
         }
     }
 
@@ -109,13 +101,13 @@ function Carousel(options) {
     *        'afterBegin' or 'beforeEnd'.
     */
     function moveItem(i, marginLeft, position) {
-        var itemToMove = el.querySelectorAll('.' + crslClass + ' > ul li')[i];
+        var itemToMove = element.querySelectorAll('.' + crslClass + ' > ul li')[i];
         itemToMove.style.marginLeft = marginLeft;
 
-        el.querySelector('.' + crslClass + ' > ul')
+        element.querySelector('.' + crslClass + ' > ul')
           .removeChild(itemToMove);
 
-        el.querySelector('.' + crslClass + ' > ul')
+        element.querySelector('.' + crslClass + ' > ul')
           .insertAdjacentHTML(position, itemToMove.outerHTML);
     }
 
@@ -134,7 +126,7 @@ function Carousel(options) {
             dotContainer.appendChild(dotElement);
         }
 
-        el.appendChild(dotContainer);
+        element.appendChild(dotContainer);
         currentDot();
     }
 
@@ -142,8 +134,8 @@ function Carousel(options) {
     * Highlight the corresponding dot of the currently visible carousel item.
     */
     function currentDot() {
-        [].forEach.call(el.querySelectorAll('.' + crslDotsClass + ' li'), function(item) {
-            item.classList.remove('active');
+        [].forEach.call(element.querySelectorAll('.' + crslDotsClass + ' li'), function(item) {
+            item.classList.remove('is-active');
         });
 
         switch (current) {
@@ -157,7 +149,7 @@ function Carousel(options) {
                 current = current;
         }
 
-        el.querySelectorAll('.' + crslDotsClass + ' li')[current].classList.add('active');
+        element.querySelectorAll('.' + crslDotsClass + ' li')[current].classList.add('is-active');
     }
 
     /**
@@ -186,8 +178,8 @@ function Carousel(options) {
         buttonPrev.addEventListener('click', showPrev);
         buttonNext.addEventListener('click', showNext);
 
-        el.appendChild(buttonPrev);
-        el.appendChild(buttonNext);
+        element.appendChild(buttonPrev);
+        element.appendChild(buttonNext);
     }
 
     /**
@@ -204,8 +196,8 @@ function Carousel(options) {
         buttonStop.classList.add(crslButtonStopClass);
         buttonStop.addEventListener('click', stop);
 
-        el.appendChild(buttonPlay);
-        el.appendChild(buttonStop);
+        element.appendChild(buttonPlay);
+        element.appendChild(buttonStop);
     }
 
     /**
@@ -224,7 +216,7 @@ function Carousel(options) {
     * @param {object} item - The element to move into view.
     */
     function animateNext(item) {
-        item.style.marginLeft = -el.offsetWidth + 'px';
+        item.style.marginLeft = -element.offsetWidth + 'px';
     }
 
     /**
@@ -236,73 +228,116 @@ function Carousel(options) {
     function show(slide) {
         var delta = current - slide;
 
-        if (delta === 0) {
-            return;
-        }
-
         if (delta < 0) {
-            for (var i = 0; i < -delta; i++) {
-                showNext();
-            }
+            moveByDelta(-delta, showNext);
         } else {
-            for (var j = 0; j < delta; j++) {
-                showPrev();
-            }
+            moveByDelta(delta, showPrev);
+        }
+    }
+
+    /**
+    * Helper to move the slides by index.
+    * 
+    * @param {number} delta - how many slides to move.
+    * @param {function} direction - function to move forward or back.
+    */
+    function moveByDelta(delta, direction) {
+        for (var i = 0; i < delta; i++) {
+            direction();
         }
     }
 
     /**
     * Move the carousel back.
-    * Do the sliding, move the last item to the very beginning, highlight the 
-    * corresponding navigation dot.
     * 
     * @public
     */
     function showPrev() {
-        switch (circular) {
-            case true:
-                animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[0]);
-                moveItem(count - 1, -el.offsetWidth + 'px', 'afterBegin');
-                break;
-            default:
-                stop();
-                if (current === 0) {
-                    return;
-                }
-                animatePrev(el.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
-        }
-
-        current--;
-
-        if (controlDots) {
-            currentDot();
+        if (infinite) {
+            showPrevInfinite();
+        } else {
+            showPrevLinear();
         }
     }
 
     /**
+    * Helper function to show the previous slide for INFINITE carousel.
+    * Do the sliding, move the last item to the very beginning.
+    *
+    */
+    function showPrevInfinite() {
+        animatePrev(element.querySelectorAll('.' + crslClass + ' > ul li')[0]);
+        moveItem(count - 1, -element.offsetWidth + 'px', 'afterBegin');
+
+        adjustCurrent(-1);
+    }
+
+    /**
+    * Helper function to show the previous slide for LINEAR carousel.
+    * Stop the autoplay if user goes back. If on the first slide - do nothing.
+    *
+    */
+    function showPrevLinear() {
+        stop();
+        if (current === 0) {
+            return;
+        }
+        animatePrev(element.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
+        
+        adjustCurrent(-1);
+    }
+
+    /**
     * Move the carousel forward.
-    * Do the sliding, move the second item to the very end, highlight the 
-    * corresponding navigation dot.
     * 
     * @public
     */
     function showNext() {
-        switch (circular) {
-            case true:
-                animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[1]);
-                moveItem(0, '', 'beforeEnd');
-                break;
-            default:
-                if (current === count - 1) {
-                    stop();
-                    return;
-                }
-                animateNext(el.querySelectorAll('.' + crslClass + ' > ul li')[current]);
+        if (infinite) {
+            showNextInfinite();
+        } else {
+            showNextLinear();
         }
+    }
 
-        current++;
+    /**
+    * Helper function to show the next slide for INFINITE carousel.
+    * Do the sliding, move the second item to the very end.
+    *
+    */
+    function showNextInfinite() {
+        animateNext(element.parentElement.querySelectorAll('.' + crslClass + ' > ul li')[1]);
+        moveItem(0, '', 'beforeEnd');
 
-        if (controlDots) {
+        adjustCurrent(1);
+    }
+
+    /**
+    * Helper function to show the next slide for LINEAR carousel.
+    * If on the last slide - stop the play and do nothing else.
+    *
+    */
+    function showNextLinear() {
+        if (current === count - 1) {
+            stop();
+            return;
+        }
+        animateNext(element.parentElement.querySelectorAll('.' + crslClass + ' > ul li')[current]);
+
+        adjustCurrent(1);
+    }
+
+    /**
+    * Adjust _current_ and highlight the respective dot.
+    *
+    * @param {number} val - defines which way current should be corrected.
+    */
+    function adjustCurrent(val) {
+        console.log('before: ', current);
+        current += val;
+        console.log('after: ', current);
+
+        if (options.dots) {
             currentDot();
         }
     }

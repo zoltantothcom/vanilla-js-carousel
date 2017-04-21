@@ -26,9 +26,9 @@
 * @param {(string)} [options.arrNextText=&raquo;] - Text for _NEXT_ arrow.
 */
 function Carousel(options) {
-    var element     = document.getElementById(options.elem || 'carousel'),
-        infinite    = options.infinite,
-        interval    = options.interval || 3000,
+    var element  = document.getElementById(options.elem || 'carousel'),
+        infinite = options.infinite,
+        interval = options.interval || 3000,
 
         btnPlayText = options.btnPlayText || 'Play',
         btnStopText = options.btnStopText || 'Stop',
@@ -62,9 +62,6 @@ function Carousel(options) {
     */
     function render() {
         var actions = {
-            autoplay: function() {
-                return play();
-            },
             dots: function() {
                 return showDots();
             },
@@ -74,17 +71,20 @@ function Carousel(options) {
             buttons: function() {
                 return showButtons();
             },
-            initial: function() {
-                var initial = 0 || (options.initial >= count) ? count : options.initial;
-                return show(initial);
+            autoplay: function() {
+                return play();
             },
             infinite: function() {
                 return moveItem(count - 1, -element.offsetWidth + 'px', 'afterBegin');
+            },
+            initial: function() {
+                var initial = 0 || (options.initial >= count) ? count : options.initial;
+                return show(initial);
             }
         };
 
-        for (var key in options) {
-            if (options[key] && actions.hasOwnProperty(key)) {
+        for (var key in actions) {
+            if (options.hasOwnProperty(key) && options[key]) {
                 actions[key]();
             }
         }
@@ -266,7 +266,7 @@ function Carousel(options) {
     *
     */
     function showPrevInfinite() {
-        animatePrev(element.querySelectorAll('.' + crslClass + ' > ul li')[0]);
+        animatePrev(document.querySelectorAll('.' + crslClass + ' > ul li')[0]);
         moveItem(count - 1, -element.offsetWidth + 'px', 'afterBegin');
 
         adjustCurrent(-1);
@@ -282,7 +282,7 @@ function Carousel(options) {
         if (current === 0) {
             return;
         }
-        animatePrev(element.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
+        animatePrev(document.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
         
         adjustCurrent(-1);
     }
@@ -306,7 +306,7 @@ function Carousel(options) {
     *
     */
     function showNextInfinite() {
-        animateNext(element.parentElement.querySelectorAll('.' + crslClass + ' > ul li')[1]);
+        animateNext(document.querySelectorAll('.' + crslClass + ' > ul li')[1]);
         moveItem(0, '', 'beforeEnd');
 
         adjustCurrent(1);
@@ -322,7 +322,7 @@ function Carousel(options) {
             stop();
             return;
         }
-        animateNext(element.parentElement.querySelectorAll('.' + crslClass + ' > ul li')[current]);
+        animateNext(document.querySelectorAll('.' + crslClass + ' > ul li')[current]);
 
         adjustCurrent(1);
     }
@@ -333,9 +333,7 @@ function Carousel(options) {
     * @param {number} val - defines which way current should be corrected.
     */
     function adjustCurrent(val) {
-        console.log('before: ', current);
         current += val;
-        console.log('after: ', current);
 
         if (options.dots) {
             currentDot();

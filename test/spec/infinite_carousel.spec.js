@@ -1,4 +1,4 @@
-describe('CAROUSEL - CIRCULAR', function() {
+describe('CAROUSEL - infinite', function() {
 
     describe('general', function() {
         beforeEach(function() {
@@ -6,7 +6,7 @@ describe('CAROUSEL - CIRCULAR', function() {
             loadFixtures(regularFixture);
 
             this.carousel = new Carousel({
-                circular: false
+                infinite: false
             });
         });
 
@@ -32,7 +32,7 @@ describe('CAROUSEL - CIRCULAR', function() {
             this.carousel = new Carousel({
                 initial: 2,
                 dots: true,
-                circular: true
+                infinite: true
             });
         });
 
@@ -70,7 +70,7 @@ describe('CAROUSEL - CIRCULAR', function() {
             this.carousel = new Carousel({
                 dots: true,
                 initial: 2,
-                circular: true
+                infinite: true
             });
         });
 
@@ -105,7 +105,7 @@ describe('CAROUSEL - CIRCULAR', function() {
             loadFixtures(regularFixture);
 
             this.carousel = new Carousel({
-                circular: true
+                infinite: true
             });
         });
 

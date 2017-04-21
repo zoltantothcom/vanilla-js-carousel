@@ -5,7 +5,9 @@ describe('CAROUSEL - LINEAR', function() {
             jasmine.getFixtures().fixturesPath = fixturePath;
             loadFixtures(regularFixture);
 
-            this.carousel = new Carousel({});
+            this.carousel = new Carousel({
+                initial: 10
+            });
         });
 
         it('should be defined', function() {
@@ -89,11 +91,11 @@ describe('CAROUSEL - LINEAR', function() {
             expect( imgName(img.src) ).toBe('nature-4.jpg');
         });
 
-        xit('should show the last image on show(-1)', function() {
+        it('should show the first image on show(-1)', function() {
             this.carousel.show(-9);
-            var img = $('img')[1];
+            var img = $('img')[0];
 
-            expect( imgName(img.src) ).toBe('nature-4.jpg');
+            expect( imgName(img.src) ).toBe('nature-1.jpg');
         });
     });
 

@@ -73,29 +73,29 @@ describe('CAROUSEL - MULTI IMAGE', function() {
 
         // dots
         it('should NOT create the dots container', function() {
-            expect( $('.dots').length ).toBeFalsy();
+            expect( $('.js-Carousel-dots').length ).toBeFalsy();
         });
 
         it('should NOT create the navigation dots', function() {
-            expect( $('.dots li').length ).toBeFalsy();
+            expect( $('.js-Carousel-dots li').length ).toBeFalsy();
         });
 
         // buttons
         it('should NOT create the <play> button', function() {
-            expect( $('.btn_play').length ).toBeFalsy();
+            expect( $('.js-Carousel-btnPlay').length ).toBeFalsy();
         });
 
         it('should NOT create the <stop> button', function() {
-            expect( $('.btn_stop').length ).toBeFalsy();
+            expect( $('.js-Carousel-btnStop').length ).toBeFalsy();
         });
 
         //arrows
         it('should NOT create the <prev> arrow', function() {
-            expect( $('.arrow_prev').length ).toBeFalsy();
+            expect( $('.js-Carousel-arrowPrev').length ).toBeFalsy();
         });
 
         it('should NOT create the <next> arrow', function() {
-            expect( $('.arrow_next').length ).toBeFalsy();
+            expect( $('.js-Carousel-arrowNext').length ).toBeFalsy();
         });
 
         // initial 
@@ -122,29 +122,29 @@ describe('CAROUSEL - MULTI IMAGE', function() {
 
         // dots
         it('should create the dots container', function() {
-            expect( $('.dots').length ).toBe(1);
+            expect( $('.js-Carousel-dots').length ).toBe(1);
         });
 
         it('should create the navigation dots', function() {
-            expect( $('.dots li').length ).toBeGreaterThan(1);
+            expect( $('.js-Carousel-dots li').length ).toBeGreaterThan(1);
         });
 
         // buttons
         it('should create the <play> button', function() {
-            expect( $('.btn_play').length ).toBe(1);
+            expect( $('.js-Carousel-btnPlay').length ).toBe(1);
         });
 
         it('should create the <stop> button', function() {
-            expect( $('.btn_stop').length ).toBe(1);
+            expect( $('.js-Carousel-btnStop').length ).toBe(1);
         });
 
         //arrows
         it('should create the <prev> arrow', function() {
-            expect( $('.arrow_prev').length ).toBe(1);
+            expect( $('.js-Carousel-arrowPrev').length ).toBe(1);
         });
 
         it('should create the <next> arrow', function() {
-            expect( $('.arrow_next').length ).toBe(1);
+            expect( $('.js-Carousel-arrowNext').length ).toBe(1);
         });
 
         // initial 
@@ -154,7 +154,7 @@ describe('CAROUSEL - MULTI IMAGE', function() {
     });
 
 
-    describe('user defined titles and classes', function() {
+    describe('user defined titles', function() {
         beforeEach(function() {
             jasmine.getFixtures().fixturesPath = fixturePath;
             loadFixtures(regularFixture);
@@ -164,41 +164,30 @@ describe('CAROUSEL - MULTI IMAGE', function() {
                 buttons: true,
                 
                 btnPlayText: 'Start',
-                crslButtonPlayClass: 'start',
-
                 btnStopText: 'Pause',
-                crslButtonStopClass: 'pause',
-
                 arrNextText: 'NEXT',
-                crslArrowNextClass: 'forward',
-
                 arrPrevText: 'PREV',
-                crslArrowPrevClass: 'backward'
             });
         });
 
-        it('should be exactly one <play> button accepting text and CSS class', function() {
-            expect( $('button') ).toHaveClass('start');
-            expect( $('.start').length ).toEqual(1);
-            expect( $('.start') ).toContainText('Start');
+        it('should be exactly one <play> button accepting text', function() {
+            expect( $('.js-Carousel-btnPlay').length ).toEqual(1);
+            expect( $('.js-Carousel-btnPlay') ).toContainText('Start');
         });
 
-        it('should be exactly one <stop> button accepting text and CSS class', function() {
-            expect( $('button') ).toHaveClass('pause');
-            expect( $('.pause').length ).toEqual(1);
-            expect( $('.pause') ).toContainText('Pause');
+        it('should be exactly one <stop> button accepting text', function() {
+            expect( $('.js-Carousel-btnStop').length ).toEqual(1);
+            expect( $('.js-Carousel-btnStop') ).toContainText('Pause');
         });
 
-        it('should be exactly one <prev> arrow accepting text and CSS class', function() {
-            expect( $('button') ).toHaveClass('backward');
-            expect( $('.backward').length ).toEqual(1);
-            expect( $('.backward') ).toContainText('PREV');
+        it('should be exactly one <prev> arrow accepting text', function() {
+            expect( $('.js-Carousel-arrowPrev').length ).toEqual(1);
+            expect( $('.js-Carousel-arrowPrev') ).toContainText('PREV');
         });
 
-        it('should be exactly one <next> arrow accepting text and CSS class', function() {
-            expect( $('button') ).toHaveClass('forward');
-            expect( $('.forward').length ).toEqual(1);
-            expect( $('.forward') ).toContainText('NEXT');
+        it('should be exactly one <next> arrow accepting text', function() {
+            expect( $('.js-Carousel-arrowNext').length ).toEqual(1);
+            expect( $('.js-Carousel-arrowNext') ).toContainText('NEXT');
         });
     });
 
@@ -278,18 +267,18 @@ describe('CAROUSEL - MULTI IMAGE', function() {
         });
 
         it ("should ignore clicks on dot container", function() {
-            spyEvent = spyOnEvent('.dots', 'click');
+            spyEvent = spyOnEvent('.js-Carousel-dots', 'click');
 
-            $('.dots').click();
+            $('.js-Carousel-dots').click();
 
             expect(spyEvent).toHaveBeenTriggered();
             expect( this.carousel.live() ).toEqual(0);
         });
           
         it ("should set the current slide according to clicked dot", function() {
-            spyEvent = spyOnEvent('.dots li:eq(2)', 'click');
+            spyEvent = spyOnEvent('.js-Carousel-dots li:eq(2)', 'click');
 
-            $('.dots li:eq(2)').click();
+            $('.js-Carousel-dots li:eq(2)').click();
 
             expect(spyEvent).toHaveBeenTriggered();
             expect( this.carousel.live() ).toEqual(2);
@@ -316,11 +305,11 @@ describe('CAROUSEL - MULTI IMAGE', function() {
 
             this.carousel.stop();
 
-            spyEvent = spyOnEvent('.btn_stop', 'click');
+            spyEvent = spyOnEvent('.js-Carousel-btnStop', 'click');
 
-            $('.btn_stop').click();
+            $('.js-Carousel-btnStop').click();
 
-            expect('click').toHaveBeenTriggeredOn('.btn_stop');
+            expect('click').toHaveBeenTriggeredOn('.js-Carousel-btnStop');
             expect(spyEvent).toHaveBeenTriggered();
         });
     });

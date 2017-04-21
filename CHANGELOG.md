@@ -1,17 +1,23 @@
 # Change Log
 ---
 
-## [3.1.0] - 2017-04-21
-
-### Added
-1. Ability to specify the carousel behavior:
-    - infinite or linear
+## [3.0.0] - 2017-04-xx
 
 ### Changed
+2. [ BREAKING ] <_circular_> to <_infinite_> in carousel options
 1. [ BREAKING ] CSS classes re-named to follow the [SUIT naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
 
 ### Removed
 1. [ BREAKING ] - Ability to change CSS classes through options
+
+
+
+## [2.2.0] - 2017-04-11
+
+### Added
+1. Ability to specify the carousel behavior:
+    - circular or linear
+
 
 
 ## [2.1.0] - 2017-03-03

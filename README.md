@@ -5,6 +5,8 @@ Vanilla JavaScript Carousel
 
 Tiny *(1Kb gzipped)* JavaScript carousel with all the basic features.
 
+![alt text](https://raw.githubusercontent.com/zoltantothcom/vanilla-js-carousel/master/docs/images/carousel.jpg "Vanilla JavaScript Carousel")
+
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
 

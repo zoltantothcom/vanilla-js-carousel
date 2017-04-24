@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Vanilla JavaScript Carousel</title>
+
+    <link rel="stylesheet" href="styles/docs-page.css" />
+    <link rel="stylesheet" href="styles/vanilla-js-carousel.css">
+    <link rel="stylesheet" href="styles/prism.css" />
+    <!--[if IE 9]>
+    <script src="//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <img src="images/vanilla-js-logo.png" alt="Vanilla JS">
+
+        <h1>Vanilla Javascript Carousel</h1>
+
+        <h3>Tiny (1Kb gzipped) Javascript carousel with all the basic features.</h3>
+    </header>
+
+    <section>
+        <h2>Demo</h2>
+
+        <div class="js-Carousel" id="carousel">
+            <ul>
+                <li><img src="images/nature-1.jpg" alt=""></li>
+                <li><img src="images/nature-2.jpg" alt=""></li>
+                <li><img src="images/nature-3.jpg" alt=""></li>
+                <li><img src="images/nature-4.jpg" alt=""></li>
+                <li><img src="images/nature-5.jpg" alt=""></li>
+                <li><img src="images/nature-6.jpg" alt=""></li>
+                <li><img src="images/nature-7.jpg" alt=""></li>
+                <li><img src="images/nature-8.jpg" alt=""></li>
+                <li><img src="images/nature-9.jpg" alt=""></li>
+                <li><img src="images/nature-10.jpg" alt=""></li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Download</h2>
+
+        <p>Available on <a href="https://github.com/zoltantothcom/vanilla-js-carousel" target="_blank">GitHub</a> or <a href="https://www.npmjs.com/package/vanilla-js-carousel" target="_blank">npm</a></p>
+    </section>
+
+    <section>
+        <h2>Installation</h2>
+
+        <ol>
+            <li>
+                Download as an <strong><code>npm</code></strong> package
+                <pre><code class="language-javascript">npm install --save vanilla-js-carousel</code></pre>
+                or include the script in your page
+                <pre><code class="language-markup">&lt;script src="path/to/vanilla-js-carousel.min.js">&lt;/script></code></pre>
+            </li>
+            <li>
+                Include the CSS and feel free to edit it or write your own
+                <pre><code class="language-markup">&lt;link rel="stylesheet" href="path/to/vanilla-js-carousel.css"></code></pre>
+            </li>
+            <li>
+                Set up your markup
+                <pre><code class="language-markup">&lt;div class="js-Carousel" id="carousel">
+    &lt;ul>
+        &lt;li>&lt;img src="image-1.jpg" alt="">&lt;/li>
+        &lt;li>&lt;img src="image-2.jpg" alt="">&lt;/li>
+        &lt;li>&lt;img src="image-3.jpg" alt="">&lt;/li>
+        &lt;li>&lt;img src="image-4.jpg" alt="">&lt;/li>
+        &lt;li>&lt;img src="image-5.jpg" alt="">&lt;/li>
+    &lt;/ul>
+&lt;/div></code></pre>
+            </li>
+            <li>
+                If you installed via <strong><code>npm</code></strong>
+                <pre><code class="language-javascript">const Carousel = require("vanilla-js-carousel");</code></pre>
+            </li>
+            <li>
+                Initialize the carousel
+                <pre><code class="language-javascript">var carousel = new Carousel({
+    elem: 'carousel',    // id of the carousel container
+    autoplay: true,      // starts the rotation automatically
+    infinite: true,      // enables infinite mode
+    interval: 1500,      // interval between slide changes
+    initial: 0,          // slide to start with
+    dots: true,          // show navigation dots
+    arrows: true,        // show navigation arrows
+    buttons: false,      // hide &lt;play>/&lt;stop> buttons,
+    btnStopText: 'Pause' // &lt;stop> button text
+});
+
+// Show the 3rd slide (Numeration of slides starts at 0)
+carousel.show(2);
+
+// Move to the next slide
+carousel.next();</code></pre>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Options</h2>
+
+        <table>
+            <tr>
+                <th colspan="4" class="subhead">General</th>
+            </tr>
+            <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>elem</td>
+                <td>string</td>
+                <td>'carousel'</td>
+                <td>The <i>id</i> of the carousel container</td>
+            </tr>
+            <tr>
+                <td>interval</td>
+                <td>int</td>
+                <td>3000</td>
+                <td>Auto play interval in milliseconds</td>
+            </tr>
+            <tr>
+                <td>initial</td>
+                <td>int</td>
+                <td>0</td>
+                <td>Index of the slide to start on</td>
+            </tr>
+            <tr>
+                <td>autoplay</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Enable auto play of slides</td>
+            </tr>
+            <tr>
+                <td>infinite</td>
+                <td>boolean</td>
+                <td>false</td>
+                <td>Enables infinite mode</td>
+            </tr>
+            <tr>
+                <td>dots</td>
+                <td>boolean</td>
+                <td>true</td>
+                <td>Display navigation dots</td>
+            </tr>
+            <tr>
+                <td><code>arrows</code></td>
+                <td><code>boolean</code></td>
+                <td><code>true</code></td>
+                <td>Display navigation arrows (<i>&lt;prev></i>/<i>&lt;next></i>)</td>
+            </tr>
+            <tr>
+                <td><code>buttons</code></td>
+                <td><code>boolean</code></td>
+                <td><code>true</code></td>
+                <td>Display navigation buttons (<i>&lt;stop></i>/<i>&lt;play></i>)</td>
+            </tr>
+            <tr>
+                <th colspan="4" class="subhead">Button Titles</th>
+            </tr>
+            <tr>
+                <th>Option</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>btnPlayText</td>
+                <td>string</td>
+                <td>'Play'</td>
+                <td><i>&lt;play></i> button</td>
+            </tr>
+            <tr>
+                <td>btnStopText</td>
+                <td>string</td>
+                <td>'Stop'</td>
+                <td><i>&lt;stop></i> button</td>
+            </tr>
+            <tr>
+                <td>arrPrevText</td>
+                <td>string</td>
+                <td>'&amp;lsaquo;'</td>
+                <td><i>&lt;prev></i> arrow</td>
+            </tr>
+            <tr>
+                <td>arrNextText</td>
+                <td>string</td>
+                <td>'&amp;rsaquo;'</td>
+                <td><i>&lt;next></i> arrow</td>
+            </tr>
+        </table>
+    </section>
+
+
+    <section>
+        <h2>Methods</h2>
+
+        <table>
+            <tr>
+                <th>Method</th>
+                <th>Argument</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>.show(index)</td>
+                <td>index: int</td>
+                <td>Move the carousel to slide by index</td>
+            </tr>
+            <tr>
+                <td>.live()</td>
+                <td></td>
+                <td>Return the current slide's index</td>
+            </tr>
+            <tr>
+                <td>.prev()</td>
+                <td></td>
+                <td>Move to previous slide</td>
+            </tr>
+            <tr>
+                <td>.next()</td>
+                <td></td>
+                <td>Move to next slide</td>
+            </tr>
+            <tr>
+                <td>.play()</td>
+                <td></td>
+                <td>Start the autoplay</td>
+            </tr>
+            <tr>
+                <td>.stop()</td>
+                <td></td>
+                <td>Stop the autoplay</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>Licence</h2>
+
+        <div>
+            <p>This is free and unencumbered software released into the public domain.</p>
+
+            <p>Anyone is free to copy, modify, publish, use, compile, sell, or
+            distribute this software, either in source code form or as a compiled
+            binary, for any purpose, commercial or non-commercial, and by any
+            means.</p>
+
+            <p>In jurisdictions that recognize copyright laws, the author or authors
+            of this software dedicate any and all copyright interest in the
+            software to the public domain. We make this dedication for the benefit
+            of the public at large and to the detriment of our heirs and
+            successors. We intend this dedication to be an overt act of
+            relinquishment in perpetuity of all present and future rights to this
+            software under copyright law.</p>
+
+            <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+            EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+            MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+            IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+            OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+            ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+            OTHER DEALINGS IN THE SOFTWARE.</p>
+
+            <p>For more information, please refer to <a href="http://unlicense.org/" target="_blank">http://unlicense.org</a></p>
+        </div>
+    </section>
+
+    <a href="https://github.com/zoltantothcom"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <script src="javascript/prism.js"></script>
+    <script src="javascript/vanilla-js-carousel.min.js"></script>
+    <script>
+        var carousel = new Carousel({
+            elem: 'carousel', // id of the carousel container
+            autoplay: true,   // starts the rotation automatically
+            infinite: true,   // enables infinite mode
+            interval: 1500,   // interval between slide changes
+            initial: 0,       // slide to start with
+            dots: true,       // show navigation dots
+            arrows: true,     // show navigation arrows
+            buttons: true     // show play/stop buttons
+        });
+    </script>
+</body>
+</html>

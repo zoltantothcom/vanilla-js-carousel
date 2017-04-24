@@ -1,4 +1,4 @@
-describe('CAROUSEL - infinite', function() {
+describe('CAROUSEL - INFINITE', function() {
 
     describe('general', function() {
         beforeEach(function() {

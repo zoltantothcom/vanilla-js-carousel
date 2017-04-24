@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Vanilla Javascript Carousel</title>
-    <link rel="stylesheet" href="carousel.css">
+    <title>Vanilla JavaScript Carousel</title>
+    <link rel="stylesheet" href="vanilla-js-carousel.css">
   </head>
   <body>
     <section>
@@ -16,14 +16,15 @@
         </ul>
       </div>
     </section>
-    <script src="carousel.min.js"></script>
+    <script src="vanilla-js-carousel.min.js"></script>
     <script>
       var carousel = new Carousel({
       	elem: 'carousel',
       	dots: true,
       	arrows: true,
       	buttons: true,
-      	autoplay: true
+      	autoplay: true,
+      	infinite: true
       });
     </script>
   </body>

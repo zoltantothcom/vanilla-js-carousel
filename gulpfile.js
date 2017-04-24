@@ -16,7 +16,7 @@ var banner = ['/**',
 	''].join('\n');
 
 gulp.task('script', function() {
-	gulp.src(['./src/javascript/carousel.js'])
+	gulp.src(['./src/javascript/vanilla-js-carousel.js'])
 		.pipe(uglify())
 		.pipe(header(banner, { 
 			pkg: pkg 
@@ -24,7 +24,8 @@ gulp.task('script', function() {
 		.pipe(rename({ 
 			suffix: '.min' 
 		}))
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./dist'))
+		.pipe(gulp.dest('./docs/javascript'));
 });
 
 gulp.task('markup', function() {
@@ -44,7 +45,17 @@ gulp.task('styles', function() {
 		// .pipe(rename({ 
 		// 	suffix: '.min' 
 		// }))
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./dist'))
+		.pipe(gulp.dest('./docs/styles'));
+});
+
+gulp.task('docs-styles', function() {
+	gulp.src('./docs/styles/*.less')
+		.pipe(less())
+		.pipe(clean({ 
+			compatibility: 'ie9' 
+		}))
+		.pipe(gulp.dest('./docs/styles'));
 });
 
 gulp.task('lint', function() {
@@ -53,4 +64,4 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('default', [ 'script', 'markup', 'styles', 'lint' ]);
+gulp.task('default', [ 'script', 'markup', 'styles', 'docs-styles', 'lint' ]);

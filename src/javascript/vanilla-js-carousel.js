@@ -1,7 +1,7 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 3.1.0
+* @version 3.0.0
 */
 
 /**
@@ -27,7 +27,6 @@
 */
 function Carousel(options) {
     var element  = document.getElementById(options.elem || 'carousel'),
-        infinite = options.infinite,
         interval = options.interval || 3000,
 
         btnPlayText = options.btnPlayText || 'Play',
@@ -253,7 +252,7 @@ function Carousel(options) {
     * @public
     */
     function showPrev() {
-        if (infinite) {
+        if (options.infinite) {
             showPrevInfinite();
         } else {
             showPrevLinear();
@@ -263,7 +262,6 @@ function Carousel(options) {
     /**
     * Helper function to show the previous slide for INFINITE carousel.
     * Do the sliding, move the last item to the very beginning.
-    *
     */
     function showPrevInfinite() {
         animatePrev(document.querySelectorAll('.' + crslClass + ' > ul li')[0]);
@@ -275,7 +273,6 @@ function Carousel(options) {
     /**
     * Helper function to show the previous slide for LINEAR carousel.
     * Stop the autoplay if user goes back. If on the first slide - do nothing.
-    *
     */
     function showPrevLinear() {
         stop();
@@ -293,7 +290,7 @@ function Carousel(options) {
     * @public
     */
     function showNext() {
-        if (infinite) {
+        if (options.infinite) {
             showNextInfinite();
         } else {
             showNextLinear();
@@ -303,7 +300,6 @@ function Carousel(options) {
     /**
     * Helper function to show the next slide for INFINITE carousel.
     * Do the sliding, move the second item to the very end.
-    *
     */
     function showNextInfinite() {
         animateNext(document.querySelectorAll('.' + crslClass + ' > ul li')[1]);
@@ -315,7 +311,6 @@ function Carousel(options) {
     /**
     * Helper function to show the next slide for LINEAR carousel.
     * If on the last slide - stop the play and do nothing else.
-    *
     */
     function showNextLinear() {
         if (current === count - 1) {

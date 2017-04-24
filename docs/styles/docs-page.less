@@ -1,0 +1,118 @@
+body {
+  counter-reset: item;
+  font-family: sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: inline-block;
+}
+
+header {
+  width: 800px;
+  margin: 16px auto;
+  text-align: center;
+}
+
+h1 {
+  margin: 48px 0 0;
+}
+
+h3 {
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 400;
+  margin: 32px 0 48px;
+}
+
+section {
+  border: 1px solid #f0db4f;
+  border-radius: 3px;
+  line-height: 1.75;
+  margin: 0 auto 32px;
+  width: 800px;
+  
+  h2 {
+    background: #fefac9;
+    border-bottom: 1px solid #f0db4f;
+    font-size: 15px;
+    margin: 0 0 30px;
+    padding: 10px;
+  }
+
+  p, ul, ol {
+    margin: 0 45px 30px;
+  }
+
+  ol {
+    list-style: none;
+    margin-left: 25px;
+  }
+
+  ol li {
+    counter-increment: item;
+    margin-bottom: 3em;
+  }
+
+  ol li:before {
+    margin-right: 10px;
+    border-radius: 4px;
+    content: counter(item);
+    background: #272822;
+    color: #fff;
+    width: 2em;
+    text-align: center;
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+  }
+
+  a {
+    color: #55acee;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  table {
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 16px 32px 32px;
+    width: 92%;
+  }
+
+  table td {
+    font-family: monospace;
+  }
+
+  table tr:nth-child(2n) {
+    background: #f5f5f5;
+  }
+
+  table th, table td {
+    border: 1px solid #eee;
+    padding: 10px;
+    text-align: left;
+  }
+
+  table th {
+    background: #272822;
+    color: #fafafa;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  table th.subhead {
+    background: #fffeee;
+    color: #e09e41;
+  }
+
+  code {
+    font-size: 16px;
+  }
+}

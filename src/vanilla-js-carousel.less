@@ -8,10 +8,10 @@
 
 // mixins
 .transition(@property: all, @duration: .2s) {
-    transition: @property @duration linear;
+    transition: @property @duration ease;
 }
 
-.js-carousel {
+.js-Carousel {
     background: @bg;
     height: 255px;
     margin: 0 auto 2em;
@@ -19,7 +19,6 @@
 
     position: relative;
     width: 600px;
-
 
     // list of images
     > ul {
@@ -41,10 +40,9 @@
         }
     }
 
-
     // arrows - PREV and NEXT
-    .arrow_prev,
-    .arrow_next {
+    .js-Carousel-arrowPrev,
+    .js-Carousel-arrowNext {
         background: transparent;
         border: 0;
         color: @grey-medium;
@@ -63,12 +61,11 @@
         }
     }
 
-    .arrow_prev { left: 0; }
-    .arrow_next { right: 0; }
-
+    .js-Carousel-arrowPrev { left: 0; }
+    .js-Carousel-arrowNext { right: 0; }
 
     // navigation dots
-    .dots {
+    .js-Carousel-dots {
         display: inline-block;
         height: 1.25em;
         margin: 0;
@@ -87,7 +84,7 @@
             width: .75em;
             .transition;
 
-            &.active {
+            &.is-active {
                 background: @white;
                 box-shadow: 0 0 3px 3px #ddd;
             }
@@ -98,10 +95,9 @@
         }
     }
 
-
     // buttons - PLAY and STOP
-    .btn_stop,
-    .btn_play {
+    .js-Carousel-btnStop,
+    .js-Carousel-btnPlay {
         background: @grey;
         border: 0;
         cursor: pointer;
@@ -118,7 +114,7 @@
         }
     }
 
-    .btn_stop {
+    .js-Carousel-btnStop {
         left: 100px;
     }
 }

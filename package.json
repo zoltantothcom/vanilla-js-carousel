@@ -1,6 +1,6 @@
 {
   "name": "vanilla-js-carousel",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "Tiny (1Kb gzipped) JavaScript carousel with all the basic features.",
   "main": "index.js",
   "scripts": {

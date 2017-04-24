@@ -1,7 +1,7 @@
 # Change Log
 ---
 
-## [3.0.0] - 2017-04-xx
+## [3.0.0] - 2017-04-24
 
 ### Changed
 2. [ BREAKING ] <_circular_> to <_infinite_> in carousel options

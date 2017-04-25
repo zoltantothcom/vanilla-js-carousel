@@ -3,7 +3,7 @@ Vanilla JavaScript Carousel
 
 [![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-carousel.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-carousel) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-carousel/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-carousel?branch=master) [![Code Climate](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel/badges/gpa.svg)](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
 
-Tiny *(1Kb gzipped)* JavaScript carousel with all the basic features.
+Tiny *(1Kb gzipped)* JavaScript carousel with all the features most of us will ever need.
 
 [![Vanilla JavaScript Carousel](https://raw.githubusercontent.com/zoltantothcom/vanilla-js-carousel/master/docs/images/carousel.jpg)](http://zoltantothcom.github.io/vanilla-js-carousel/)
 

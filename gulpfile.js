@@ -11,7 +11,7 @@ var pkg      = require('./package.json'),
 	browSync = require('browser-sync').create();
 
 // static Server + watching less/html files
-gulp.task('serve', [ 'script', 'markup', 'styles', 'docs-styles', 'lint' ], function() {
+gulp.task('serve', ['script-live', 'markup-live', 'styles-live', 'lint' ], function() {
     browSync.init({
         server: './dist',
         online: false
@@ -38,7 +38,15 @@ gulp.task('script', ['lint'], function() {
 			suffix: '.min' 
 		}))
 		.pipe(gulp.dest('./dist'))
-		.pipe(gulp.dest('./docs/javascript'))
+		.pipe(gulp.dest('./docs/javascript'));
+});
+
+gulp.task('script-live', ['lint'], function() {
+	gulp.src(['./src/javascript/vanilla-js-carousel.js'])
+		.pipe(rename({ 
+			suffix: '.min' 
+		}))
+		.pipe(gulp.dest('./dist'))
 		.pipe(browSync.stream());
 });
 
@@ -47,6 +55,12 @@ gulp.task('markup', function() {
 		.pipe(pug({
 			pretty: true
 		}))
+		.pipe(gulp.dest('./dist'));
+});
+
+gulp.task('markup-live', function() {
+	gulp.src('./src/index.pug')
+		.pipe(pug())
 		.pipe(gulp.dest('./dist'))
 		.pipe(browSync.stream());
 });
@@ -65,6 +79,13 @@ gulp.task('styles', ['docs-styles'], function() {
 		.pipe(browSync.stream());
 });
 
+gulp.task('styles-live', function() {
+	gulp.src('./src/styles/*.less')
+		.pipe(less())
+		.pipe(gulp.dest('./dist'))
+		.pipe(browSync.stream());
+});
+
 gulp.task('docs-styles', function() {
 	gulp.src('./docs/styles/*.less')
 		.pipe(less())
@@ -80,4 +101,5 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['script', 'markup', 'styles', 'docs-styles', 'lint']);
+gulp.task('live', ['serve']);

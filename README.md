@@ -11,12 +11,10 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the features most of us will e
 
 
 ## Demo
----
-[**Carousel**](http://zoltantothcom.github.io/vanilla-js-carousel "Carousel Demo")
+> [**Carousel**](http://zoltantothcom.github.io/vanilla-js-carousel "Carousel Demo")
 
 
 ## Installation
----
 1. Via NPM:
     ```js
     npm install --save vanilla-js-carousel
@@ -33,7 +31,6 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the features most of us will e
 
 
 ## Usage
----
 1. Include the CSS and feel free to edit it or write your own:
     ```html
     <link rel="stylesheet" href="dist/vanilla-js-carousel.css" />
@@ -78,7 +75,6 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the features most of us will e
 
 
 ## Options
----
 
 #### Settings
 Option | Type | Default | Description
@@ -102,7 +98,6 @@ arrNextText | string | `&rsaquo;` | Text for <*next*> arrow
 
 
 ## Methods
----
 Method | Argument | Description
 ------ | -------- | -----------
 .show(index) | index: int | Moves the carousel to slide by index
@@ -114,14 +109,12 @@ Method | Argument | Description
 
 
 ## Run the tests
----
 ```
 npm test
 ```
 
 
 ## Browser support and dependencies
----
 Browser | Support | Dependencies
 ------ | -------- | -----------
 Chrome | yes | -
@@ -134,5 +127,4 @@ IE | yes* | [Polyfill](//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js)
 
 
 ## License
----
 Free. [Unlicense](http://unlicense.org).

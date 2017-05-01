@@ -1,5 +1,4 @@
-Vanilla JavaScript Carousel
--------
+# Vanilla JavaScript Carousel
 
 [![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-carousel.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-carousel) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-carousel/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-carousel?branch=master) [![Code Climate](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel/badges/gpa.svg)](https://codeclimate.com/github/zoltantothcom/vanilla-js-carousel) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
 
@@ -9,11 +8,11 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the features most of us will e
 
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
-
+---
 ## Demo
-> [**Carousel**](http://zoltantothcom.github.io/vanilla-js-carousel "Carousel Demo")
+ [**Carousel**](http://zoltantothcom.github.io/vanilla-js-carousel "Carousel Demo")
 
-
+---
 ## Installation
 1. Via NPM:
     ```js
@@ -29,7 +28,7 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the features most of us will e
     <script src="dist/vanilla-js-carousel.min.js"></script>
     ```
 
-
+---
 ## Usage
 1. Include the CSS and feel free to edit it or write your own:
     ```html
@@ -73,7 +72,7 @@ Tiny *(1Kb gzipped)* JavaScript carousel with all the features most of us will e
     carousel.next();
     ```
 
-
+---
 ## Options
 
 #### Settings
@@ -96,7 +95,7 @@ btnStopText | string | Stop | Text for <*stop*> button
 arrPrevText | string | `&lsaquo;` | Text for <*prev*> arrow
 arrNextText | string | `&rsaquo;` | Text for <*next*> arrow
 
-
+---
 ## Methods
 Method | Argument | Description
 ------ | -------- | -----------
@@ -107,13 +106,13 @@ Method | Argument | Description
 .play() | | Starts the autoplay
 .stop() | | Stops the autoplay
 
-
+---
 ## Run the tests
 ```
 npm test
 ```
 
-
+---
 ## Browser support and dependencies
 Browser | Support | Dependencies
 ------ | -------- | -----------
@@ -125,6 +124,6 @@ IE | yes* | [Polyfill](//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js)
 
 \* _IE9 and up_
 
-
+---
 ## License
 Free. [Unlicense](http://unlicense.org).

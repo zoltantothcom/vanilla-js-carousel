@@ -21,7 +21,7 @@ module.exports = function(config) {
         'node_modules/jquery/dist/jquery.min.js',
         'test/spec/fixtures/*.html', 
         { 
-            pattern: 'img/*.jpg', 
+            pattern: 'docs/images/*.jpg', 
             watched: false, 
             included: false, 
             served: true, 

@@ -159,6 +159,12 @@ function Carousel(options) {
     function scrollToImage(e) {
         if (e.target.tagName === 'LI') {
             show(e.target.getAttribute('data-position'));
+
+            // reset the interval
+            if (cycle) {
+                stop();
+                play();
+            }
         }
     }
 

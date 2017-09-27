@@ -1,11 +1,20 @@
 # Change Log
 ---
 
+## [3.1.0] - 2017-09-27
+
+### Enhancements
+1. Reset the autoplay interval on:
+    - navigation dot click
+    - navigation arrow click
+
+
+
 ## [3.0.0] - 2017-04-24
 
 ### Changed
-2. [ BREAKING ] <_circular_> to <_infinite_> in carousel options
-1. [ BREAKING ] CSS classes re-named to follow the [SUIT naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
+1. [ BREAKING ] <_circular_> to <_infinite_> in carousel options
+2. [ BREAKING ] CSS classes re-named to follow the [SUIT naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
 
 ### Removed
 1. [ BREAKING ] - Ability to change CSS classes through options

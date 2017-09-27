@@ -256,14 +256,20 @@ describe('CAROUSEL - MULTI IMAGE', function() {
 
     describe("navigation dots", function() {
         var spyEvent;
-       
+
         beforeEach(function() {
+            jasmine.clock().install();
             jasmine.getFixtures().fixturesPath = fixturePath;
             loadFixtures(regularFixture);
 
             this.carousel = new Carousel({
-                dots: true
+                dots: true,
+                autoplay: true
             });
+        });
+          
+        afterEach(function() {
+            jasmine.clock().uninstall();
         });
 
         it ("should ignore clicks on dot container", function() {
@@ -281,6 +287,27 @@ describe('CAROUSEL - MULTI IMAGE', function() {
             $('.js-Carousel-dots li:eq(2)').click();
 
             expect(spyEvent).toHaveBeenTriggered();
+            expect( this.carousel.live() ).toEqual(2);
+        });
+
+        it ("should reset the interval on dot click", function() {
+            jasmine.clock().tick(2950);
+            $('.js-Carousel-dots li:eq(2)').click();
+
+            jasmine.clock().tick(2950);
+            expect( this.carousel.live() ).toEqual(2);
+
+            jasmine.clock().tick(3050);
+            expect( this.carousel.live() ).toEqual(3);
+        });
+
+        it ("should just set the desired slide if not playing", function() {
+            this.carousel.stop();
+
+            jasmine.clock().tick(2500);
+            $('.js-Carousel-dots li:eq(2)').click();
+
+            jasmine.clock().tick(9000);
             expect( this.carousel.live() ).toEqual(2);
         });
     });

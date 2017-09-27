@@ -160,11 +160,7 @@ function Carousel(options) {
         if (e.target.tagName === 'LI') {
             show(e.target.getAttribute('data-position'));
 
-            // reset the interval
-            if (cycle) {
-                stop();
-                play();
-            }
+            resetInterval();
         }
     }
 
@@ -263,6 +259,8 @@ function Carousel(options) {
         } else {
             showPrevLinear();
         }
+
+        resetInterval();
     }
 
     /**
@@ -301,6 +299,8 @@ function Carousel(options) {
         } else {
             showNextLinear();
         }
+
+        resetInterval();
     }
 
     /**
@@ -338,6 +338,16 @@ function Carousel(options) {
 
         if (options.dots) {
             currentDot();
+        }
+    }
+
+    /**
+    * Reset the autoplay interval.
+    */
+    function resetInterval() {
+        if (cycle) {
+            stop();
+            play();
         }
     }
 

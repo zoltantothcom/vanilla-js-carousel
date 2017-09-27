@@ -312,6 +312,59 @@ describe('CAROUSEL - MULTI IMAGE', function() {
         });
     });
 
+    
+    describe("navigation arrows", function() {
+        var spyEvent;
+
+        beforeEach(function() {
+            jasmine.clock().install();
+            jasmine.getFixtures().fixturesPath = fixturePath;
+            loadFixtures(regularFixture);
+
+            this.carousel = new Carousel({
+                arrows: true,
+                autoplay: true,
+                infinite: true
+            });
+        });
+          
+        afterEach(function() {
+            jasmine.clock().uninstall();
+        });
+
+        it ("should go to next slide on <NEXT> arrow click", function() {
+            spyEvent = spyOnEvent('.js-Carousel-arrowNext', 'click');
+
+            $('.js-Carousel-arrowNext').click();
+
+            expect(spyEvent).toHaveBeenTriggered();
+            expect( this.carousel.live() ).toEqual(1);
+        });
+
+        it ("should reset the interval on arrow click", function() {
+            jasmine.clock().tick(2999);
+            expect( this.carousel.live() ).toEqual(0);
+
+            $('.js-Carousel-arrowNext').click();
+
+            jasmine.clock().tick(2999);
+            expect( this.carousel.live() ).toEqual(1);
+
+            jasmine.clock().tick(3000);
+            expect( this.carousel.live() ).toEqual(2);
+        });
+
+        it ("should just move to next slide if not playing", function() {
+            this.carousel.stop();
+
+            $('.js-Carousel-arrowNext').click();
+            $('.js-Carousel-arrowNext').click();
+
+            jasmine.clock().tick(9999);
+            expect( this.carousel.live() ).toEqual(2);
+        });
+    });
+
 
     describe("STOP button click", function() {
         var spyEvent;

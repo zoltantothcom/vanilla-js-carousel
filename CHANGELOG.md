@@ -1,6 +1,13 @@
 # Change Log
 ---
 
+## [3.1.1] - 2017-10-20
+
+### Bugfix
+1. *_live()_* was returning the wrong index on carousels with no dots
+
+
+
 ## [3.1.0] - 2017-09-27
 
 ### Enhancements

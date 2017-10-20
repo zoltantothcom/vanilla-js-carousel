@@ -1,7 +1,7 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 3.1.0
+* @version 3.1.1
 */
 
 /**
@@ -136,17 +136,6 @@ function Carousel(options) {
         [].forEach.call(element.querySelectorAll('.' + crslDotsClass + ' li'), function(item) {
             item.classList.remove('is-active');
         });
-
-        switch (current) {
-            case -1:
-                current = count - 1;
-                break;
-            case count:
-                current = 0;
-                break;
-            default:
-                current = current;
-        }
 
         element.querySelectorAll('.' + crslDotsClass + ' li')[current].classList.add('is-active');
     }
@@ -335,6 +324,17 @@ function Carousel(options) {
     */
     function adjustCurrent(val) {
         current += val;
+
+        switch (current) {
+            case -1:
+                current = count - 1;
+                break;
+            case count:
+                current = 0;
+                break;
+            default:
+                current = current;
+        }
 
         if (options.dots) {
             currentDot();

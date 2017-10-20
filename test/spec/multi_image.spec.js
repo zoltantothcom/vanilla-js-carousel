@@ -198,7 +198,8 @@ describe('CAROUSEL - MULTI IMAGE', function() {
             loadFixtures(regularFixture);
 
             this.carousel = new Carousel({
-                dots: true
+                infinite: true,
+                dots: false
             });
         });
 
@@ -209,6 +210,11 @@ describe('CAROUSEL - MULTI IMAGE', function() {
         it('should equal 3 on show(3)', function() {
             this.carousel.show(3);
             expect( this.carousel.live() ).toEqual(3);
+        });
+
+        it('should equal 1 on show(5)', function() {
+            this.carousel.show(5);
+            expect( this.carousel.live() ).toEqual(1);
         });
     });
 

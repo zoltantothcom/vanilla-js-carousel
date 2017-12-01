@@ -28,7 +28,7 @@ Tiny (_**1Kb gzipped**_) JavaScript carousel with all the features most of us wi
     <script src="dist/vanilla-js-carousel.min.js"></script>
     ```
 
----
+
 ## Usage
 1. Include the CSS and feel free to edit it or write your own:
     ```html

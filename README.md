@@ -127,7 +127,7 @@ IE | yes* | [Polyfill](//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js)
 
 ## Versioning
 
-This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see [the tags on this repository](https://github.com/zoltantothcom/vanilla-js-dropdown/tags).
+This project uses [SemVer](http://semver.org/) for versioning. For the versions available, see [the tags on this repository](https://github.com/zoltantothcom/vanilla-js-carousel/tags).
 
 
 ## License

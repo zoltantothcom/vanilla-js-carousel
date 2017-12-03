@@ -1,6 +1,13 @@
 # Change Log
 ---
 
+## [3.1.2] - 2017-12-03
+
+### Bugfix
+1. Wasn't working for multiple carousels on the same page
+
+
+
 ## [3.1.1] - 2017-10-20
 
 ### Bugfix

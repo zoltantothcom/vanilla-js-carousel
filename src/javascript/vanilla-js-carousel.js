@@ -1,7 +1,7 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 3.1.1
+* @version 3.1.2
 */
 
 /**
@@ -257,7 +257,7 @@ function Carousel(options) {
     * Do the sliding, move the last item to the very beginning.
     */
     function showPrevInfinite() {
-        animatePrev(document.querySelectorAll('.' + crslClass + ' > ul li')[0]);
+        animatePrev(element.querySelectorAll('.' + crslClass + ' > ul li')[0]);
         moveItem(count - 1, -element.offsetWidth + 'px', 'afterBegin');
 
         adjustCurrent(-1);
@@ -272,7 +272,7 @@ function Carousel(options) {
         if (current === 0) {
             return;
         }
-        animatePrev(document.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
+        animatePrev(element.querySelectorAll('.' + crslClass + ' > ul li')[current - 1]);
         
         adjustCurrent(-1);
     }
@@ -297,7 +297,7 @@ function Carousel(options) {
     * Do the sliding, move the second item to the very end.
     */
     function showNextInfinite() {
-        animateNext(document.querySelectorAll('.' + crslClass + ' > ul li')[1]);
+        animateNext(element.querySelectorAll('.' + crslClass + ' > ul li')[1]);
         moveItem(0, '', 'beforeEnd');
 
         adjustCurrent(1);
@@ -312,7 +312,7 @@ function Carousel(options) {
             stop();
             return;
         }
-        animateNext(document.querySelectorAll('.' + crslClass + ' > ul li')[current]);
+        animateNext(element.querySelectorAll('.' + crslClass + ' > ul li')[current]);
 
         adjustCurrent(1);
     }

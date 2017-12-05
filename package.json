@@ -1,11 +1,8 @@
 {
   "name": "vanilla-js-carousel",
-  "version": "3.0.0",
-  "description": "Tiny (1Kb gzipped) JavaScript carousel with all the basic features.",
+  "version": "3.1.2",
+  "description": "1Kb (gzipped) pure JavaScript carousel with all the features most of us will ever need.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/zoltantothcom/vanilla-js-carousel.git"
@@ -17,7 +14,8 @@
     "javascript",
     "slider",
     "javascript carousel",
-    "vanilla javascript slider"
+    "vanilla javascript slider",
+    "js carousel"
   ],
   "bugs": {
     "url": "https://github.com/zoltantothcom/vanilla-js-carousel/issues"

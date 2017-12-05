@@ -1,6 +1,29 @@
 # Change Log
 ---
 
+## [3.1.2] - 2017-12-03
+
+### Bugfix
+1. Wasn't working for multiple carousels on the same page
+
+
+
+## [3.1.1] - 2017-10-20
+
+### Bugfix
+1. *_live()_* was returning the wrong index on carousels with no dots
+
+
+
+## [3.1.0] - 2017-09-27
+
+### Enhancements
+1. Reset the autoplay interval on:
+    - navigation dot click
+    - navigation arrow click
+
+
+
 ## [3.0.0] - 2017-04-24
 
 ### Changed

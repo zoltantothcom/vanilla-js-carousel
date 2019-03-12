@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "5"
+  - "11.1.0"
 
 branches:
   except:

@@ -58,12 +58,12 @@
 }
 .js-Carousel .js-Carousel-dots li {
   background: #aaaaaa;
-  border-radius: .75em;
+  border-radius: 0.75em;
   cursor: pointer;
   display: inline-block;
-  height: .75em;
-  margin: 0 .75em;
-  width: .75em;
+  height: 0.75em;
+  margin: 0 0.75em;
+  width: 0.75em;
   transition: all 0.2s ease;
 }
 .js-Carousel .js-Carousel-dots li.is-active {

@@ -35,7 +35,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-spec-reporter": "0.0.32",
     "phantom": "^6.0.3",
-    "pug": "^2.0.0-beta11"
+    "pug": "^3.0.1"
   },
   "repository": {
     "type": "git",

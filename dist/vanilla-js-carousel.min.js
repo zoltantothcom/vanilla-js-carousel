@@ -133,11 +133,16 @@ function Carousel(options) {
     * Highlight the corresponding dot of the currently visible carousel item.
     */
     function currentDot() {
-        [].forEach.call(element.querySelectorAll('.' + crslDotsClass + ' li'), function(item) {
-            item.classList.remove('is-active');
+        [].forEach.call(element.querySelectorAll('.' + crslDotsClass + ' li'), function(item, index) {
+            if (index === current)
+            {
+                item.classList.add('is-active');
+            }
+            else
+            {
+                item.classList.remove('is-active');
+            }
         });
-
-        element.querySelectorAll('.' + crslDotsClass + ' li')[current].classList.add('is-active');
     }
 
     /**
